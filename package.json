@@ -1,17 +1,16 @@
 {
-  "name": "",
+  "name": "About This Item",
   "version": "",
-  "description": "",
-  "author": "",
+  "description": "About this item module for app",
+  "author": "Nicholas Mendini",
   "license": "",
   "engines": {
     "node": ">=6.13.0"
   },
-  "scripts": {
-  },
-  "dependencies": {
-  },
+  "scripts": {},
+  "dependencies": {},
   "devDependencies": {
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor"
+    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "faker": "^5.1.0"
   }
 }
