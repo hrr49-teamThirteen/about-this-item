@@ -96,7 +96,7 @@ const Answer = sequelize.define('Answer', {
 Question.hasMany(Answer, { foreignKey: 'question_id' });
 Answer.belongsTo(Question, { foreignKey: 'question_id' });
 
-sequelize.sync();
+sequelize.sync({force: true});
 
 // QUERIES
 
@@ -104,5 +104,8 @@ sequelize.sync();
 
 // EXPORTS
 module.exports = {
-  Highlight
+  Highlight,
+  Specification,
+  Question,
+  Answer
 };
