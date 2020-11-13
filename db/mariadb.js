@@ -1,13 +1,13 @@
 const { Sequelize, DataTypes } = require('sequelize');
-// const sequelize = new Sequelize(`mariadb://${process.env.DB_USER}:${process.env.DB_PASS}:${process.env.PORT}/about_this_item`);
 
-const sequelize = new Sequelize('about_this_item', process.env.DB_USER, process.env.DB_PASS,{
+const sequelize = new Sequelize('about_this_item', process.env.DB_USER, process.env.DB_PASS, {
   host: process.env.DB_HOST,
   dialect: 'mariadb',
   dialectOptions: {
     timezone: 'Etc/GMT-6'
   }
 });
+
 
 // try {
 //   sequelize.authenticate();
@@ -20,7 +20,7 @@ const sequelize = new Sequelize('about_this_item', process.env.DB_USER, process.
 
 const Highlight = sequelize.define('Highlight', {
   text: {
-    type: DataTypes.STRING,
+    type: DataTypes.TEXT,
     allowNull: false
   }
 });
@@ -96,11 +96,13 @@ const Answer = sequelize.define('Answer', {
 Question.hasMany(Answer, { foreignKey: 'question_id' });
 Answer.belongsTo(Question, { foreignKey: 'question_id' });
 
-sequelize.sync({alter: true});
+sequelize.sync();
 
 // QUERIES
 
 
 
 // EXPORTS
-module.exports = {}
+module.exports = {
+  Highlight
+};
