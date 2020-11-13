@@ -1,3 +1,4 @@
+require('dotenv').config();
 const { Sequelize, DataTypes } = require('sequelize');
 
 const sequelize = new Sequelize('about_this_item', process.env.DB_USER, process.env.DB_PASS, {
@@ -39,7 +40,6 @@ const Specification = sequelize.define('Specification', {
 const Question = sequelize.define('Question', {
   question_id: {
     type: DataTypes.INTEGER,
-    allowNull: false,
     autoIncrement: true,
     primaryKey: true
   },
@@ -48,13 +48,12 @@ const Question = sequelize.define('Question', {
     allowNull: false
   },
   question: {
-    type: DataTypes.STRING,
+    type: DataTypes.TEXT,
     allowNull: false
   },
   created_at: {
     type: DataTypes.DATE,
     defaultValue: DataTypes.NOW,
-    allowNull: false
   }
 });
 
@@ -96,7 +95,7 @@ const Answer = sequelize.define('Answer', {
 Question.hasMany(Answer, { foreignKey: 'question_id' });
 Answer.belongsTo(Question, { foreignKey: 'question_id' });
 
-sequelize.sync({force: true});
+sequelize.sync();
 
 // QUERIES
 
@@ -107,5 +106,6 @@ module.exports = {
   Highlight,
   Specification,
   Question,
-  Answer
+  Answer,
+  sequelize
 };
