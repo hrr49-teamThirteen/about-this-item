@@ -53,7 +53,8 @@ const Question = sequelize.define('Question', {
   },
   created_at: {
     type: DataTypes.DATE,
-    defaultValue: DataTypes.NOW
+    defaultValue: DataTypes.NOW,
+    allowNull: false
   }
 });
 
@@ -77,7 +78,8 @@ const Answer = sequelize.define('Answer', {
   },
   created_at: {
     type: DataTypes.DATE,
-    defaultValue: DataTypes.NOW
+    defaultValue: DataTypes.NOW,
+    allowNull: false
   },
   helpful: {
     type: DataTypes.INTEGER,
@@ -91,14 +93,10 @@ const Answer = sequelize.define('Answer', {
   }
 });
 
-// try {
-//   sequelize.sync();
-//   console.log('All models were syncronized successfully');
-// } catch (error) {
-//   console.error('Syncronization of models failed:', error);
-// }
+Question.hasMany(Answer, { foreignKey: 'question_id' });
+Answer.belongsTo(Question, { foreignKey: 'question_id' });
 
-sequelize.sync();
+sequelize.sync({alter: true});
 
 // QUERIES
 
