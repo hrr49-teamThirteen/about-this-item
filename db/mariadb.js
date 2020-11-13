@@ -1,13 +1,14 @@
+require('dotenv').config();
 const { Sequelize, DataTypes } = require('sequelize');
-// const sequelize = new Sequelize(`mariadb://${process.env.DB_USER}:${process.env.DB_PASS}:${process.env.PORT}/about_this_item`);
 
-const sequelize = new Sequelize('about_this_item', process.env.DB_USER, process.env.DB_PASS,{
+const sequelize = new Sequelize('about_this_item', process.env.DB_USER, process.env.DB_PASS, {
   host: process.env.DB_HOST,
   dialect: 'mariadb',
   dialectOptions: {
     timezone: 'Etc/GMT-6'
   }
 });
+
 
 // try {
 //   sequelize.authenticate();
@@ -20,7 +21,7 @@ const sequelize = new Sequelize('about_this_item', process.env.DB_USER, process.
 
 const Highlight = sequelize.define('Highlight', {
   text: {
-    type: DataTypes.STRING,
+    type: DataTypes.TEXT,
     allowNull: false
   }
 });
@@ -39,7 +40,6 @@ const Specification = sequelize.define('Specification', {
 const Question = sequelize.define('Question', {
   question_id: {
     type: DataTypes.INTEGER,
-    allowNull: false,
     autoIncrement: true,
     primaryKey: true
   },
@@ -48,12 +48,12 @@ const Question = sequelize.define('Question', {
     allowNull: false
   },
   question: {
-    type: DataTypes.STRING,
+    type: DataTypes.TEXT,
     allowNull: false
   },
   created_at: {
     type: DataTypes.DATE,
-    defaultValue: DataTypes.NOW
+    defaultValue: DataTypes.NOW,
   }
 });
 
@@ -77,7 +77,8 @@ const Answer = sequelize.define('Answer', {
   },
   created_at: {
     type: DataTypes.DATE,
-    defaultValue: DataTypes.NOW
+    defaultValue: DataTypes.NOW,
+    allowNull: false
   },
   helpful: {
     type: DataTypes.INTEGER,
@@ -91,12 +92,8 @@ const Answer = sequelize.define('Answer', {
   }
 });
 
-// try {
-//   sequelize.sync();
-//   console.log('All models were syncronized successfully');
-// } catch (error) {
-//   console.error('Syncronization of models failed:', error);
-// }
+Question.hasMany(Answer, { foreignKey: 'question_id' });
+Answer.belongsTo(Question, { foreignKey: 'question_id' });
 
 sequelize.sync();
 
@@ -105,4 +102,10 @@ sequelize.sync();
 
 
 // EXPORTS
-module.exports = {}
+module.exports = {
+  Highlight,
+  Specification,
+  Question,
+  Answer,
+  sequelize
+};

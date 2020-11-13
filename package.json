@@ -9,7 +9,8 @@
   },
   "scripts": {
     "start": "node server/server.js",
-    "server-dev": "nodemon server/server.js"
+    "server-dev": "nodemon server/server.js",
+    "seed": "node server/fakeData.js"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
