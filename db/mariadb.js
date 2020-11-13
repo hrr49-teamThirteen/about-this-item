@@ -99,6 +99,34 @@ sequelize.sync();
 
 // QUERIES
 
+getAllDetails = (callback) => {
+  var data = {};
+  Highlight.findAll()
+    .then(result => {
+      data.highlights = [];
+      result.forEach(item => {
+        data.highlights.push(item.text);
+      });
+      Specification.findAll()
+        .then(specs => {
+          data.specifications = {};
+          specs.forEach(item => {
+            if (item.name.toLowerCase() === 'description') {
+              data.description = item.value;
+            } else {
+              data.specifications[item.name] = item.value;
+            }
+          });
+          callback(null, data);
+        })
+        .catch(err => {
+          callback(err);
+        });
+    })
+    .catch(err => {
+      callback(err);
+    });
+};
 
 
 // EXPORTS
@@ -107,5 +135,6 @@ module.exports = {
   Specification,
   Question,
   Answer,
-  sequelize
+  sequelize,
+  getAllDetails
 };
