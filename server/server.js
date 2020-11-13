@@ -9,31 +9,36 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // API ROUTES
-app.get('/api/products/:id/details ', (req, res) => {
+app.get('/api/products/details', (req, res) => {
+  db.getAllDetails((err, data) => {
+    if (err) {
+      console.error('ERROR: ', err);
+    }
+    res.status(200).send(data);
+  });
+});
+
+app.get('/api/products/questions', (req, res) => {
 
 });
 
-app.get('/api/products/:id/questions', (req, res) => {
+app.get('/api/products/answers', (req, res) => {
 
 });
 
-app.get('/api/products/:id/answers', (req, res) => {
+app.post('/api/products/questions', (req, res) => {
 
 });
 
-app.post('/api/products/:id/questions', (req, res) => {
+app.post('/api/products/answers', (req, res) => {
 
 });
 
-app.post('/api/products/:id/answers', (req, res) => {
+app.put('/api/product/helpful', (req, res) => {
 
 });
 
-app.put('/api/product/:id/helpful', (req, res) => {
-
-});
-
-app.put('/api/product/:id/not-helpful', (req, res) => {
+app.put('/api/product/not-helpful', (req, res) => {
 
 });
 
