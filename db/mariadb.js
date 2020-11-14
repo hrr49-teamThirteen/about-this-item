@@ -99,7 +99,7 @@ sequelize.sync();
 
 // QUERIES
 
-getAllDetails = (callback) => {
+const getAllDetails = (callback) => {
   var data = {};
   Highlight.findAll()
     .then(result => {
