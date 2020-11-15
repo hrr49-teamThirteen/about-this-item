@@ -26,3 +26,6 @@ dist/
 
 # Environment Variables
 .env
+
+# Notes/Snippets
+snippets.json
