@@ -95,11 +95,14 @@ const Answer = sequelize.define('Answer', {
 Question.hasMany(Answer, { foreignKey: 'question_id' });
 Answer.belongsTo(Question, { foreignKey: 'question_id' });
 
-sequelize.sync();
+async function syncAll() {
+  await sequelize.sync();
+};
+// syncAll();
 
 // QUERIES
 
-getAllDetails = (callback) => {
+const getAllDetails = (callback) => {
   var data = {};
   Highlight.findAll()
     .then(result => {
@@ -136,5 +139,6 @@ module.exports = {
   Question,
   Answer,
   sequelize,
+  syncAll,
   getAllDetails
 };

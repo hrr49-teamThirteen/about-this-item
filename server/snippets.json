@@ -1,0 +1,8 @@
+[
+  "jest-nyancat-reporter", {
+  "suppressErrorReporter": false
+  }
+]
+
+
+"jest --detectOpenHandles"
