@@ -4,7 +4,7 @@ const db = require('../db/mariadb.js');
 // RUNS SEEDING ON ALL TABLES
 
 // CLEAR EXISTING DATABASE INFO
-(async function resetDatabase() {
+(async function resetAndSeedDatabase() {
   await db.sequelize.sync({ force: true })
   .catch((error) => {
     console.log('ERROR: ', error);
