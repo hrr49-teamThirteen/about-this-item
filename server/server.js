@@ -28,7 +28,12 @@ app.get('/api/products/:id/questions', (req, res) => {
 });
 
 app.get('/api/products/:id/answers', (req, res) => {
-
+  db.getAllAnswers((err, data) => {
+    if (err) {
+      throw new Error('ERROR: ', err);
+    }
+    res.status(200).send(data);
+  });
 });
 
 app.post('/api/products/:id/questions', (req, res) => {
