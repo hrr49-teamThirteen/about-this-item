@@ -12,14 +12,19 @@ app.use(bodyParser.json());
 app.get('/api/products/:id/details', (req, res) => {
   db.getAllDetails((err, data) => {
     if (err) {
-      console.error('ERROR: ', err);
+      throw new Error('ERROR: ', err);
     }
     res.status(200).send(data);
   });
 });
 
 app.get('/api/products/:id/questions', (req, res) => {
-
+  db.getAllQuestions((err, data) => {
+    if (err) {
+      throw new Error('ERROR: ', err);
+    }
+    res.status(200).send(data);
+  });
 });
 
 app.get('/api/products/:id/answers', (req, res) => {
