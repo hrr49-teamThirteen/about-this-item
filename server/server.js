@@ -10,7 +10,6 @@ app.use(bodyParser.json());
 
 // API ROUTES
 app.get('/api/products/:id/details', (req, res) => {
-  console.log(req.params.id);
   db.getAllDetails(req.params.id, (err, data) => {
     if (err) {
       throw new Error('ERROR: ', err);

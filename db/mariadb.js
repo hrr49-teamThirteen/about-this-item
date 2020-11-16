@@ -6,7 +6,8 @@ const sequelize = new Sequelize('about_this_item', process.env.DB_USER, process.
   dialect: 'mariadb',
   dialectOptions: {
     timezone: 'Etc/GMT-6'
-  }
+  },
+  logging: false
 });
 
 
@@ -141,7 +142,6 @@ async function syncAll(option) {
 // QUERIES
 
 const getAllDetails = (id, callback) => {
-  console.log(id)
   var data = {};
   Highlight.findAll({
     where: {
