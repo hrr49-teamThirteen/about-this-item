@@ -10,7 +10,8 @@ app.use(bodyParser.json());
 
 // API ROUTES
 app.get('/api/products/:id/details', (req, res) => {
-  db.getAllDetails((err, data) => {
+  console.log(req.params.id);
+  db.getAllDetails(req.params.id, (err, data) => {
     if (err) {
       throw new Error('ERROR: ', err);
     }
@@ -19,7 +20,7 @@ app.get('/api/products/:id/details', (req, res) => {
 });
 
 app.get('/api/products/:id/questions', (req, res) => {
-  db.getAllQuestions((err, data) => {
+  db.getAllQuestions(req.params.id, (err, data) => {
     if (err) {
       throw new Error('ERROR: ', err);
     }
@@ -28,7 +29,7 @@ app.get('/api/products/:id/questions', (req, res) => {
 });
 
 app.get('/api/products/:id/answers', (req, res) => {
-  db.getAllAnswers((err, data) => {
+  db.getAllAnswers(req.params.id, (err, data) => {
     if (err) {
       throw new Error('ERROR: ', err);
     }
@@ -37,7 +38,7 @@ app.get('/api/products/:id/answers', (req, res) => {
 });
 
 app.post('/api/products/:id/questions', (req, res) => {
-  db.addQuestion(req.body, (err, data) => {
+  db.addQuestion(req.body, req.params.id, (err, data) => {
     if (err) {
       res.status(400).send(err);
       throw new Error('ERROR: ', err);
@@ -47,7 +48,7 @@ app.post('/api/products/:id/questions', (req, res) => {
 });
 
 app.post('/api/products/:id/answers', (req, res) => {
-  db.addAnswer(req.body, (err, data) => {
+  db.addAnswer(req.body, req.params.id, (err, data) => {
     if (err) {
       res.status(400).send(err);
       throw new Error('ERROR: ', err);
@@ -57,7 +58,7 @@ app.post('/api/products/:id/answers', (req, res) => {
 });
 
 app.put('/api/products/:id/helpful', (req, res) => {
-  db.updateHelpful(req.body, (err, data) => {
+  db.updateHelpful(req.body, req.params.id, (err, data) => {
     if (err) {
       res.status(400).send(err);
       throw new Error('ERROR: ', err);
@@ -67,7 +68,7 @@ app.put('/api/products/:id/helpful', (req, res) => {
 });
 
 app.put('/api/products/:id/not-helpful', (req, res) => {
-  db.updateNotHelpful(req.body, (err, data) => {
+  db.updateNotHelpful(req.body, req.params.id, (err, data) => {
     if (err) {
       res.status(400).send(err);
       throw new Error('ERROR: ', err);
