@@ -187,14 +187,24 @@ const addAnswer = (data, callback) => {
 };
 
 const updateHelpful = (data, callback) => {
-  console.log('Made it')
-
   Answer.increment(
     'helpful',
     { by: 1, where: { answer_id: data.answer_id }
   })
   .then(result => {
-    callback(null, result);
+    Answer.findAll({
+      where: {
+        answer_id: data.answer_id
+      }
+    })
+    .then(answer => {
+      delete answer[0].dataValues.createdAt;
+      delete answer[0].dataValues.updatedAt;
+      callback(null, answer[0]);
+    })
+    .catch(err => {
+      callback(err);
+    });
   })
   .catch(err => {
     callback(err);
