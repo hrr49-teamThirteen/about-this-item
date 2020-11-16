@@ -72,7 +72,7 @@ const Answer = sequelize.define('Answer', {
     type: DataTypes.INTEGER
   },
   answer: {
-    type: DataTypes.STRING,
+    type: DataTypes.TEXT,
     allowNull: false
   },
   created_at: {
@@ -131,6 +131,34 @@ const getAllDetails = (callback) => {
     });
 };
 
+const getAllQuestions = (callback) => {
+  Question.findAll()
+  .then(result => {
+    result.forEach(item => {
+      delete item.dataValues.createdAt;
+      delete item.dataValues.updatedAt;
+    })
+    callback(null, result)
+  })
+  .catch(err => {
+    callback(err);
+  })
+};
+
+const getAllAnswers = (callback) => {
+  Answer.findAll()
+  .then(result => {
+    result.forEach(item => {
+      delete item.dataValues.createdAt;
+      delete item.dataValues.updatedAt;
+    })
+    callback(null, result)
+  })
+  .catch(err => {
+    callback(err);
+  })
+};
+
 
 // EXPORTS
 module.exports = {
@@ -140,5 +168,7 @@ module.exports = {
   Answer,
   sequelize,
   syncAll,
-  getAllDetails
+  getAllDetails,
+  getAllQuestions,
+  getAllAnswers
 };
