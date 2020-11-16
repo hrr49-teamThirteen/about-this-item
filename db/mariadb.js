@@ -172,6 +172,20 @@ const addQuestion = (data, callback) => {
   })
 }
 
+const addAnswer = (data, callback) => {
+  Answer.create({
+    user_name: data.user_name,
+    question_id: data.question_id,
+    answer: data.answer
+  })
+  .then(result => {
+    callback(null, result);
+  })
+  .catch(err => {
+    callback(err);
+  })
+}
+
 
 // EXPORTS
 module.exports = {
@@ -184,5 +198,6 @@ module.exports = {
   getAllDetails,
   getAllQuestions,
   getAllAnswers,
-  addQuestion
+  addQuestion,
+  addAnswer
 };
