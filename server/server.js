@@ -47,7 +47,13 @@ app.post('/api/products/:id/questions', (req, res) => {
 });
 
 app.post('/api/products/:id/answers', (req, res) => {
-
+  db.addAnswer(req.body, (err, data) => {
+    if (err) {
+      res.status(400).send(err);
+      throw new Error('ERROR: ', err);
+    }
+    res.status(201).send(data);
+  });
 });
 
 app.put('/api/product/:id/helpful', (req, res) => {
