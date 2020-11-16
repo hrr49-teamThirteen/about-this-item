@@ -59,6 +59,7 @@ app.post('/api/products/:id/answers', (req, res) => {
 app.put('/api/products/:id/helpful', (req, res) => {
   db.updateHelpful(req.body, (err, data) => {
     if (err) {
+      res.status(400).send(err);
       throw new Error('ERROR: ', err);
     }
     res.status(200).send(data);
@@ -66,7 +67,13 @@ app.put('/api/products/:id/helpful', (req, res) => {
 });
 
 app.put('/api/products/:id/not-helpful', (req, res) => {
-
+  db.updateNotHelpful(req.body, (err, data) => {
+    if (err) {
+      res.status(400).send(err);
+      throw new Error('ERROR: ', err);
+    }
+    res.status(200).send(data);
+  });
 });
 
 app.get('/test', (req, res) => {
