@@ -159,6 +159,19 @@ const getAllAnswers = (callback) => {
   })
 };
 
+const addQuestion = (data, callback) => {
+  Question.create({
+    user_name: data.user_name,
+    question: data.question
+  })
+  .then(result => {
+    callback(null, result);
+  })
+  .catch(err => {
+    callback(err);
+  })
+}
+
 
 // EXPORTS
 module.exports = {
@@ -170,5 +183,6 @@ module.exports = {
   syncAll,
   getAllDetails,
   getAllQuestions,
-  getAllAnswers
+  getAllAnswers,
+  addQuestion
 };
