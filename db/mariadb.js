@@ -211,6 +211,30 @@ const updateHelpful = (data, callback) => {
   });
 };
 
+const updateNotHelpful = (data, callback) => {
+  Answer.increment(
+    'not_helpful',
+    { by: 1, where: { answer_id: data.answer_id }
+  })
+  .then(result => {
+    Answer.findAll({
+      where: {
+        answer_id: data.answer_id
+      }
+    })
+    .then(answer => {
+      delete answer[0].dataValues.createdAt;
+      delete answer[0].dataValues.updatedAt;
+      callback(null, answer[0]);
+    })
+    .catch(err => {
+      callback(err);
+    });
+  })
+  .catch(err => {
+    callback(err);
+  });
+};
 
 // EXPORTS
 module.exports = {
@@ -225,5 +249,6 @@ module.exports = {
   getAllAnswers,
   addQuestion,
   addAnswer,
-  updateHelpful
+  updateHelpful,
+  updateNotHelpful
 };
