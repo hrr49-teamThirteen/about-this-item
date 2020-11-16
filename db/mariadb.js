@@ -142,7 +142,7 @@ const getAllQuestions = (callback) => {
   })
   .catch(err => {
     callback(err);
-  })
+  });
 };
 
 const getAllAnswers = (callback) => {
@@ -156,7 +156,7 @@ const getAllAnswers = (callback) => {
   })
   .catch(err => {
     callback(err);
-  })
+  });
 };
 
 const addQuestion = (data, callback) => {
@@ -169,8 +169,8 @@ const addQuestion = (data, callback) => {
   })
   .catch(err => {
     callback(err);
-  })
-}
+  });
+};
 
 const addAnswer = (data, callback) => {
   Answer.create({
@@ -183,8 +183,23 @@ const addAnswer = (data, callback) => {
   })
   .catch(err => {
     callback(err);
+  });
+};
+
+const updateHelpful = (data, callback) => {
+  console.log('Made it')
+
+  Answer.increment(
+    'helpful',
+    { by: 1, where: { answer_id: data.answer_id }
   })
-}
+  .then(result => {
+    callback(null, result);
+  })
+  .catch(err => {
+    callback(err);
+  });
+};
 
 
 // EXPORTS
@@ -199,5 +214,6 @@ module.exports = {
   getAllQuestions,
   getAllAnswers,
   addQuestion,
-  addAnswer
+  addAnswer,
+  updateHelpful
 };

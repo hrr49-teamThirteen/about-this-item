@@ -56,11 +56,16 @@ app.post('/api/products/:id/answers', (req, res) => {
   });
 });
 
-app.put('/api/product/:id/helpful', (req, res) => {
-
+app.put('/api/products/:id/helpful', (req, res) => {
+  db.updateHelpful(req.body, (err, data) => {
+    if (err) {
+      throw new Error('ERROR: ', err);
+    }
+    res.status(200).send(data);
+  });
 });
 
-app.put('/api/product/:id/not-helpful', (req, res) => {
+app.put('/api/products/:id/not-helpful', (req, res) => {
 
 });
 
