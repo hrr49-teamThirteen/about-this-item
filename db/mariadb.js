@@ -19,10 +19,24 @@ const sequelize = new Sequelize('about_this_item', process.env.DB_USER, process.
 
 // MODELS/TABLES
 
+const Product = sequelize.define('Product', {
+  product_id: {
+    type: DataTypes.INTEGER,
+    autoIncrement: true,
+    primaryKey: true
+  },
+  name: {
+    type: DataTypes.STRING,
+  }
+});
+
 const Highlight = sequelize.define('Highlight', {
   text: {
     type: DataTypes.TEXT,
     allowNull: false
+  },
+  product_id: {
+    type: DataTypes.INTEGER,
   }
 });
 
@@ -34,6 +48,9 @@ const Specification = sequelize.define('Specification', {
   value: {
     type: DataTypes.STRING,
     allowNull: false
+  },
+  product_id: {
+    type: DataTypes.INTEGER,
   }
 });
 
@@ -54,6 +71,9 @@ const Question = sequelize.define('Question', {
   created_at: {
     type: DataTypes.DATE,
     defaultValue: DataTypes.NOW,
+  },
+  product_id: {
+    type: DataTypes.INTEGER,
   }
 });
 
@@ -89,30 +109,58 @@ const Answer = sequelize.define('Answer', {
     type: DataTypes.INTEGER,
     defaultValue: 0,
     allowNull: false
+  },
+  product_id: {
+    type: DataTypes.INTEGER,
   }
 });
 
+// FOREIGN KEY ASSOCIATIONS
 Question.hasMany(Answer, { foreignKey: 'question_id' });
 Answer.belongsTo(Question, { foreignKey: 'question_id' });
 
-async function syncAll() {
-  await sequelize.sync();
+Product.hasMany(Highlight, { foreignKey: 'product_id' });
+Highlight.belongsTo(Product, { foreignKey: 'product_id' });
+
+Product.hasMany(Specification, { foreignKey: 'product_id' });
+Specification.belongsTo(Product, { foreignKey: 'product_id' });
+
+Product.hasMany(Question, { foreignKey: 'product_id' });
+Question.belongsTo(Product, { foreignKey: 'product_id' });
+
+Product.hasMany(Answer, { foreignKey: 'product_id' });
+Answer.belongsTo(Product, { foreignKey: 'product_id' });
+
+
+// MODEL / TABLE SYNC
+async function syncAll(option) {
+  await sequelize.sync(option);
 };
-// syncAll();
+// syncAll( {alter: true });
 
 // QUERIES
 
-const getAllDetails = (callback) => {
+const getAllDetails = (id, callback) => {
+  console.log(id)
   var data = {};
-  Highlight.findAll()
+  Highlight.findAll({
+    where: {
+      product_id: id
+    }
+  })
     .then(result => {
       data.highlights = [];
       result.forEach(item => {
         data.highlights.push(item.text);
       });
-      Specification.findAll()
+      Specification.findAll({
+        where: {
+          product_id: id
+        }
+      })
         .then(specs => {
           data.specifications = {};
+          data.specifications["Item Number"] = id;
           specs.forEach(item => {
             if (item.name.toLowerCase() === 'description') {
               data.description = item.value;
@@ -131,8 +179,12 @@ const getAllDetails = (callback) => {
     });
 };
 
-const getAllQuestions = (callback) => {
-  Question.findAll()
+const getAllQuestions = (id, callback) => {
+  Question.findAll({
+    where: {
+      product_id: id
+    }
+  })
   .then(result => {
     result.forEach(item => {
       delete item.dataValues.createdAt;
@@ -145,8 +197,12 @@ const getAllQuestions = (callback) => {
   });
 };
 
-const getAllAnswers = (callback) => {
-  Answer.findAll()
+const getAllAnswers = (id, callback) => {
+  Answer.findAll({
+    where: {
+      product_id: id
+    }
+  })
   .then(result => {
     result.forEach(item => {
       delete item.dataValues.createdAt;
@@ -159,10 +215,11 @@ const getAllAnswers = (callback) => {
   });
 };
 
-const addQuestion = (data, callback) => {
+const addQuestion = (data, id, callback) => {
   Question.create({
     user_name: data.user_name,
-    question: data.question
+    question: data.question,
+    product_id: id
   })
   .then(result => {
     callback(null, result);
@@ -172,11 +229,12 @@ const addQuestion = (data, callback) => {
   });
 };
 
-const addAnswer = (data, callback) => {
+const addAnswer = (data, id, callback) => {
   Answer.create({
     user_name: data.user_name,
     question_id: data.question_id,
-    answer: data.answer
+    answer: data.answer,
+    product_id: id
   })
   .then(result => {
     callback(null, result);
@@ -186,7 +244,7 @@ const addAnswer = (data, callback) => {
   });
 };
 
-const updateHelpful = (data, callback) => {
+const updateHelpful = (data, id, callback) => {
   Answer.increment(
     'helpful',
     { by: 1, where: { answer_id: data.answer_id }
@@ -211,7 +269,7 @@ const updateHelpful = (data, callback) => {
   });
 };
 
-const updateNotHelpful = (data, callback) => {
+const updateNotHelpful = (data, id, callback) => {
   Answer.increment(
     'not_helpful',
     { by: 1, where: { answer_id: data.answer_id }
@@ -238,6 +296,7 @@ const updateNotHelpful = (data, callback) => {
 
 // EXPORTS
 module.exports = {
+  Product,
   Highlight,
   Specification,
   Question,
