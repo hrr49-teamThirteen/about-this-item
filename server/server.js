@@ -4,7 +4,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const db = require('../db/mariadb.js');
 
-
+app.use(express.static(__dirname + '/../public/'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
