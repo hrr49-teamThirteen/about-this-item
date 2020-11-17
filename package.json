@@ -8,9 +8,8 @@
   "jest": {
     "reporters": [
       [
-        "jest-nyancat-reporter",
-        {
-          "suppressErrorReporter": false
+        "jest-nyancat-reporter", {
+        "suppressErrorReporter": false
         }
       ]
     ],
@@ -24,7 +23,7 @@
     "test:watch": "jest --watch",
     "start": "node server/app.js",
     "build": "webpack --mode=production",
-    "react-dev": "webpack --mode=development --watch",
+    "react-dev": "webpack --mode=development -d eval-source-map --watch",
     "server-dev": "nodemon server/app.js",
     "seed": "node server/fakeData.js"
   },
@@ -42,6 +41,7 @@
     "@babel/core": "^7.12.3",
     "@babel/preset-env": "^7.12.1",
     "@babel/preset-react": "^7.12.5",
+    "babel-polyfill": "^6.26.0",
     "babel-loader": "^8.2.1",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
     "faker": "^5.1.0",

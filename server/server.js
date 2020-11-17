@@ -4,13 +4,12 @@ const app = express();
 const bodyParser = require('body-parser');
 const db = require('../db/mariadb.js');
 
-
+app.use(express.static(__dirname + '/../public/'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // API ROUTES
 app.get('/api/products/:id/details', (req, res) => {
-  console.log(req.params.id);
   db.getAllDetails(req.params.id, (err, data) => {
     if (err) {
       throw new Error('ERROR: ', err);
