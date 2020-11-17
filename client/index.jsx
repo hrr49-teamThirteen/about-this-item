@@ -18,23 +18,7 @@ class App extends React.Component {
     };
 
     // INITIAL API CALLS FOR DATA
-    // GET PRODUCT DETAILS
     this.getProductDetails();
-    // axios({
-    //   method: 'GET',
-    //   url: `api/products/${this.state.product}/details`
-    // })
-    //   .then(result => {
-    //     console.log(result.data);
-    //     this.setState({
-    //       description: result.data.description,
-    //       highlights: result.data.highlights,
-    //       specifications: result.data.specifications
-    //     });
-    //   }, (err) => {
-    //     throw new Error('ERROR: ', err);
-    //   });
-
   }
 
   // API CALLS
@@ -54,8 +38,6 @@ class App extends React.Component {
         throw new Error('ERROR: ', err);
       });
   }
-
-
 
   // HANDLERS
 
