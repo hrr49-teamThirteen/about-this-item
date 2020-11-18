@@ -11,7 +11,7 @@ class Details extends React.Component {
   }
   render() {
     return (
-      <div id="details">
+      <div id="details-container">
         <div className="container-white">
           <div>
             <div className="margin-left">

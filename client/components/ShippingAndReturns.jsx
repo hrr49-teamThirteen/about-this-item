@@ -26,7 +26,7 @@ class ShippingAndReturns extends React.Component {
   }
   render() {
     return (
-      <div id="shipping-returns" className="display-none">
+      <div id="shipping-returns-container" className="display-none">
         <div className="container-white">
           <div>
             <div className="margin-left">
