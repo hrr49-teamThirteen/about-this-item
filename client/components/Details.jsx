@@ -1,5 +1,6 @@
 import React from 'react';
 import HighlightsList from './HighlightsList.jsx';
+import SpecificationsList from './SpecificationsList.jsx';
 
 class Details extends React.Component {
   constructor(props) {
@@ -36,10 +37,11 @@ class Details extends React.Component {
               <div className="container-spec-desc">
                 <div className="column">
                   <h3 className="Specifications">Specifications</h3>
+                  <SpecificationsList/>
                 </div>
                 <div className="column">
                   <h3 className="Description">Description</h3>
-                  <div>{this.props.description}</div>
+                  <div className="description-container">{this.props.description}</div>
                 </div>
               </div>
             </div>

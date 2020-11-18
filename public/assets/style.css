@@ -21,6 +21,14 @@ li {
   /* margin-left: 20px; */
 }
 
+hr {
+  margin-top: 16px;
+  /* margin-bottom: 16px; */
+  border-width: 1px 0 0;
+  border-top-style: solid;
+  border-top-color: rgb(214, 214, 214);
+}
+
 /* CONTAINER */
 
 #main-container {
@@ -192,6 +200,16 @@ li {
   max-width: 50%;
   flex-direction: row;
   font-size: 14px;
+}
+
+.description-container {
+  padding-right: 16px;
+  padding-bottom: 16px;
+}
+
+.spec-container {
+  padding-right: 32px;
+  padding-bottom: 16px;
 }
 
 /* DISPLAY */
