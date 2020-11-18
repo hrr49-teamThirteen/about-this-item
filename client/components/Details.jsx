@@ -1,4 +1,5 @@
 import React from 'react';
+import HighlightsList from './HighlightsList.jsx';
 
 class Details extends React.Component {
   constructor(props) {
@@ -15,7 +16,8 @@ class Details extends React.Component {
           <div>
             <div className="margin-left">
               <h3 className="highlights">Highlights</h3>
-              <ul className="container-highlights">
+              <HighlightsList/>
+              {/* <ul className="container-highlights">
                 <div className="highlight-element"><li className ="highlight-item"><span>Highlights Entries Will Go Here and here is some excessively long text for this thing and then even more to show just how ridiculous this can be if we put our minds to it</span></li></div>
                 <div className="highlight-element"><li className ="highlight-item"><span>Highlights Entries Will Go Here</span></li></div>
                 <div className="highlight-element"><li className ="highlight-item"><span>Highlights Entries Will Go Here</span></li></div>
@@ -23,7 +25,7 @@ class Details extends React.Component {
                 <div className="highlight-element"><li className ="highlight-item"><span>Highlights Entries Will Go Here</span></li></div>
                 <div className="highlight-element"><li className ="highlight-item"><span>Highlights Entries Will Go Here</span></li></div>
                 <div className="highlight-element"><li className ="highlight-item"><span>Highlights Entries Will Go Here</span></li></div>
-              </ul>
+              </ul> */}
             </div>
           </div>
         </div>

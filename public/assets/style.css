@@ -17,7 +17,7 @@ div {
 
 li {
   display: list-item;
-  margin-left: 20px;
+  /* margin-left: 20px; */
 }
 
 /* CONTAINER */
@@ -172,7 +172,8 @@ li {
 
 .highlight-item {
   list-style-type: disc;
-  /* max-width: 25%; */
+  padding-right: 16px;
+  margin-right: 16px;
 }
 
 /* DISPLAY */
