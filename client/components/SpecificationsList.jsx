@@ -5,7 +5,7 @@ const SpecificationsList = function(props) {
   return (
     <div>
       <div className="spec-container">
-        <b>Dimensions (Overall):</b>
+        <b>Dimensions (Overall): </b>
         {`${props.specifications['Height']} (H) x
         ${props.specifications['Weight']} (W) x
         ${props.specifications['Length']} (D)`}

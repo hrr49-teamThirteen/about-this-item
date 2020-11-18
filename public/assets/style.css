@@ -239,6 +239,7 @@ hr {
 .question-row-name {
   font-size: 12px;
   color: rgb(102, 102, 102);
+  margin-top: -8px;
   margin-bottom: 16px;
 }
 
