@@ -1,9 +1,10 @@
+import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import AnswersList from './components/AnswersList.jsx';
 import ShippingAndReturns from './components/ShippingAndReturns.jsx';
-import 'babel-polyfill';
+import Details from './components/Details.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -91,9 +92,10 @@ class App extends React.Component {
             </ul>
           </div>
         </div>
+        <Details toggle={this.handleShowToggle.bind(this)}/>
         <ShippingAndReturns specs={this.state.specifications}/>
         <AnswersList/>
-        <button type="button" className="btn expand" onClick={this.handleShowToggle.bind(this)}>Show more</button>
+
       </div>
     );
   }
