@@ -100,7 +100,8 @@ class App extends React.Component {
         <Details toggle={this.handleShowToggle.bind(this)}
           highlights={this.state.highlights}
           toggleStatus={this.state.showToggle}
-          description={this.state.description}/>
+          description={this.state.description}
+          specifications={this.state.specifications}/>
         <ShippingAndReturns specs={this.state.specifications}/>
 
         <AnswersList/>

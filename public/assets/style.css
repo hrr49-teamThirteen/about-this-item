@@ -193,6 +193,11 @@ hr {
   flex-flow: row wrap;
 }
 
+.collapsed {
+  overflow: hidden;
+  height: 5px;
+}
+
 .column {
   /* padding-left: 16px;
   padding-right: 16px; */
@@ -200,6 +205,11 @@ hr {
   max-width: 50%;
   flex-direction: row;
   font-size: 14px;
+}
+
+.report-details {
+  padding-top: 16px;
+  padding-bottom: 32px;
 }
 
 .description-container {

@@ -19,7 +19,9 @@ class ShippingAndReturns extends React.Component {
   shippingDate() {
     var targetDate = new Date();
     var shipDate = moment(targetDate).add(4, 'd').format('ddd, MMM DD');
-
+    if (shipDate.includes('Sun')) {
+      shipDate = moment(targetDate).add(5, 'd').format('ddd, MMM DD');
+    }
     this.setState({
       shippingDate: shipDate
     });

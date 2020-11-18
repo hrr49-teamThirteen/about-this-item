@@ -3,7 +3,7 @@ import React from 'react';
 const SpecificationsListEntry = function(props) {
   return (
     <div className="spec-container">
-      <b>Spec Name:</b> Spec Value
+      <b>{props.spec}:</b> {props.value}
       <hr></hr>
     </div>
   );

@@ -17,6 +17,11 @@ class Details extends React.Component {
       toggled: !this.state.toggled
     }, () => {
       this.props.toggle();
+      if (this.state.toggled) {
+        document.getElementById('specs-container').classList.remove('collapsed');
+      } else {
+        document.getElementById('specs-container').classList.add('collapsed');
+      }
     });
   }
 
@@ -31,13 +36,13 @@ class Details extends React.Component {
             </div>
           </div>
         </div>
-        <div className="container-white">
+        <div id="specs-container" className="container-white collapsed">
           <div>
             <div className="margin-left">
               <div className="container-spec-desc">
                 <div className="column">
                   <h3 className="Specifications">Specifications</h3>
-                  <SpecificationsList/>
+                  <SpecificationsList specifications={this.props.specifications}/>
                 </div>
                 <div className="column">
                   <h3 className="Description">Description</h3>
