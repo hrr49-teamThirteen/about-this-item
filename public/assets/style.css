@@ -176,6 +176,23 @@ li {
   margin-right: 16px;
 }
 
+/* SPECIFICATIONS AND DESCRIPTION */
+
+.container-spec-desc {
+  display: flex;
+  flex: 0 1 auto;
+  flex-flow: row wrap;
+}
+
+.column {
+  /* padding-left: 16px;
+  padding-right: 16px; */
+  flex-basis: 50%;
+  max-width: 50%;
+  flex-direction: row;
+  font-size: 14px;
+}
+
 /* DISPLAY */
 
 .display-none {

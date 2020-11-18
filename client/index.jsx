@@ -97,7 +97,10 @@ class App extends React.Component {
             </ul>
           </div>
         </div>
-        <Details toggle={this.handleShowToggle.bind(this)} />
+        <Details toggle={this.handleShowToggle.bind(this)}
+          highlights={this.state.highlights}
+          toggleStatus={this.state.showToggle}
+          description={this.state.description}/>
         <ShippingAndReturns specs={this.state.specifications}/>
         <AnswersList/>
 
