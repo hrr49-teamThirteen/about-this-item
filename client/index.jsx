@@ -65,7 +65,7 @@ class App extends React.Component {
   getAnswers() {
     axios({
       method: 'GET',
-      url: `api/products/${this.state.product}/questions`
+      url: `api/products/${this.state.product}/answers`
     })
       .then(results => {
         this.setState({
