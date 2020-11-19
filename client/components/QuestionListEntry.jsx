@@ -1,5 +1,6 @@
 import React from 'react';
 import Moment from 'react-moment';
+import AnswersList from './AnswersList.jsx';
 
 class QuestionListEntry extends React.Component {
   constructor(props) {
@@ -14,13 +15,7 @@ class QuestionListEntry extends React.Component {
       <div>
         <div><h3 className="question-row"><span>Q: </span><span className="question-text">{this.props.question['question']}</span></h3></div>
         <div className="question-row-name"><span>{this.props.question['user_name']}</span> — <Moment fromNow>{this.props.question['created_at']}</Moment></div>
-        <div className="container-answer">
-          <div className="answer-row"><span className="answer-bold">A: </span><span>The point that pierces the pod is most likely clogged. There’s a tiny opening which needs to be cleared. I clean mine monthly by using a straightened paper clip. You can google how to clean your machine. Be sure to unplug your Keurig machine first.</span></div>
-          <div className="answer-row-name"><span>Name</span> — Post Date Goes Here <span className="helpful answer-click"> Helpful(number) </span><span className="not-helpful answer-click"> Not helpful(number) </span><span className="report-answer answer-click"> Report </span></div>
-
-          <div className="answer-row"><span className="answer-bold">A: </span><span>The point that pierces the pod is most likely clogged. There’s a tiny opening which needs to be cleared. I clean mine monthly by using a straightened paper clip. You can google how to clean your machine. Be sure to unplug your Keurig machine first.</span></div>
-          <div className="answer-row-name"><span>Name</span> — Post Date Goes Here <span className="helpful answer-click"> Helpful(number) </span><span className="not-helpful answer-click"> Not helpful(number) </span><span className="report-answer answer-click"> Report </span></div>
-        </div>
+        <AnswersList questionId={this.props.question['question_id']} answers={this.props.answers}/>
         <button type="button" className="btn">Answer it</button>
         <hr></hr>
       </div>
