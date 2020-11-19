@@ -7,7 +7,7 @@ class QuestionListEntry extends React.Component {
     super(props);
 
     this.state = {
-
+      answerButtonToggle: false
     };
   }
   render() {

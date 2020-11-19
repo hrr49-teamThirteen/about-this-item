@@ -142,6 +142,7 @@ class App extends React.Component {
         <QAndA
           questions={this.state.questions}
           answers={this.state.answers}
+          questionCount={this.state.questionCount}
         />
 
       </div>
