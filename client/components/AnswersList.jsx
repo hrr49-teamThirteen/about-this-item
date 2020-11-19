@@ -1,23 +1,51 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import AnswersListEntry from './AnswersListEntry.jsx';
 
-class AnswersList extends React.Component {
-  constructor(props) {
-    super(props);
+const AnswersList = function(props) {
+  return (
+    <div className="container-answer">
+      {
+        props.answers.map((item, i) => {
+          if (item['question_id'] === props.questionId) {
+            return <AnswersListEntry
+              questionId={props.questionId}
+              answer={item}
+              key={i}
+            />;
+          }
+        })
+      }
+    </div>
+  );
+};
 
-    this.state = {
+// class AnswersList extends React.Component {
+//   constructor(props) {
+//     super(props);
 
-    };
-  }
+//     this.state = {
 
-  render() {
-    return (
-      <div>
-        <div>AnswersList</div>
-        <div>Totally Testing This</div>
-      </div>
-    );
-  }
-}
+//     };
+//   }
+
+//   render() {
+//     return (
+//       <div className="container-answer">
+//         {
+//           this.props.answers.map((item, i) => {
+//             if (item['question_id'] === this.props.questionId) {
+//               return <AnswersListEntry
+//                 questionId={this.props.questionId}
+//                 answer={item}
+//                 key={i}
+//               />;
+//             }
+//           })
+//         }
+//       </div>
+//     );
+//   }
+// }
 
 export default AnswersList;
