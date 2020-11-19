@@ -195,7 +195,9 @@ hr {
 
 .collapsed {
   overflow: hidden;
-  height: 5px;
+  height: 10px;
+  opacity: .9;
+  background-image: linear-gradient(to bottom, rgb(247, 247, 247), white)
 }
 
 .column {
@@ -221,6 +223,56 @@ hr {
   padding-right: 32px;
   padding-bottom: 16px;
 }
+
+/* Q & A */
+
+.container-questions {
+  padding-top: 16px;
+}
+
+.question-row {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.question-row-name {
+  font-size: 12px;
+  color: rgb(102, 102, 102);
+  margin-bottom: 16px;
+}
+
+.container-answer {
+  padding-left: 16px;
+  padding-bottom: 16px;
+  padding-right: 16px;
+}
+
+.answer-bold {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.answer-row-name {
+  font-size: 12px;
+  color: rgb(102, 102, 102);
+  margin-bottom: 16px;
+}
+
+.answer-click {
+  margin-left: 16px;
+}
+
+/* .helpful {
+  margin-left: 16px;
+}
+
+.not-helpful {
+  margin-left: 16px;
+}
+
+.report-answer {
+  margin-left: 16px;
+} */
 
 /* DISPLAY */
 

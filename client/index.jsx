@@ -2,7 +2,7 @@ import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
-import AnswersList from './components/AnswersList.jsx';
+import QAndA from './components/QAndA.jsx';
 import ShippingAndReturns from './components/ShippingAndReturns.jsx';
 import Details from './components/Details.jsx';
 
@@ -17,15 +17,17 @@ class App extends React.Component {
       highlights: [],
       description: '',
       specifications: {},
+      questions: [],
+      questionCount: 0,
+      answers: [],
       product: 1
     };
-
-
 
     // INITIAL API CALLS FOR DATA
   }
   componentDidMount() {
     this.getProductDetails();
+    this.getQuestions();
   }
 
   // API CALLS
@@ -35,11 +37,39 @@ class App extends React.Component {
       url: `api/products/${this.state.product}/details`
     })
       .then(result => {
-        // console.log(result.data);
         this.setState({
           description: result.data.description,
           highlights: result.data.highlights,
           specifications: result.data.specifications
+        });
+      }, (err) => {
+        console.error(err);
+      });
+  }
+
+  getQuestions() {
+    axios({
+      method: 'GET',
+      url: `api/products/${this.state.product}/questions`,
+    })
+      .then(results => {
+        this.setState({
+          questionCount: results.data.length,
+          questions: results.data
+        });
+      }, (err) => {
+        console.error(err);
+      });
+  }
+
+  getAnswers() {
+    axios({
+      method: 'GET',
+      url: `api/products/${this.state.product}/questions`
+    })
+      .then(results => {
+        this.setState({
+          answers: results.data
         });
       }, (err) => {
         console.error(err);
@@ -52,6 +82,7 @@ class App extends React.Component {
 
     document.getElementById('shipping-returns-container').classList.add('display-none');
     document.getElementById('details-container').classList.add('display-none');
+    document.getElementById('q-and-a-container').classList.add('display-none');
 
     this.setState({
       selected: e.target.id
@@ -62,7 +93,10 @@ class App extends React.Component {
       }
       if (this.state.selected === 'details') {
         document.getElementById('details-container').classList.remove('display-none');
-
+      }
+      if (this.state.selected === 'q-and-a') {
+        document.getElementById('q-and-a-container').classList.remove('display-none');
+        this.getAnswers();
       }
     });
   }
@@ -93,18 +127,22 @@ class App extends React.Component {
             <ul id="tab-list">
               <li id="details" className="tab details selected" onClick={this.handleClick}>Details</li>
               <li id="shipping" className="tab shipping" onClick={this.handleClick}>Shipping & Returns</li>
-              <li id="q-and-a" className="tab q-and-a" onClick={this.handleClick}>Q&A (number of questions)</li>
+              <li id="q-and-a" className="tab q-and-a" onClick={this.handleClick}>Q&A ({this.state.questionCount})</li>
             </ul>
           </div>
         </div>
-        <Details toggle={this.handleShowToggle.bind(this)}
+        <Details
+          toggle={this.handleShowToggle.bind(this)}
           highlights={this.state.highlights}
           toggleStatus={this.state.showToggle}
           description={this.state.description}
-          specifications={this.state.specifications}/>
+          specifications={this.state.specifications}
+        />
         <ShippingAndReturns specs={this.state.specifications}/>
-
-        <AnswersList/>
+        <QAndA
+          questions={this.state.questions}
+          answers={this.state.answers}
+        />
 
       </div>
     );
