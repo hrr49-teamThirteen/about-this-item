@@ -2,11 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import AnswersList from './components/AnswersList.jsx';
+import ShippingAndReturns from './components/ShippingAndReturns.jsx';
+import 'babel-polyfill';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     // this.handleShowToggle = this.handleShowToggle.bind(this);
+    // this.getProductDetails = this.getProductDetails.bind(this);
 
     this.state = {
       selected: 'details',
@@ -17,24 +20,12 @@ class App extends React.Component {
       product: 1
     };
 
-    // INITIAL API CALLS FOR DATA
-    // GET PRODUCT DETAILS
-    this.getProductDetails();
-    // axios({
-    //   method: 'GET',
-    //   url: `api/products/${this.state.product}/details`
-    // })
-    //   .then(result => {
-    //     console.log(result.data);
-    //     this.setState({
-    //       description: result.data.description,
-    //       highlights: result.data.highlights,
-    //       specifications: result.data.specifications
-    //     });
-    //   }, (err) => {
-    //     throw new Error('ERROR: ', err);
-    //   });
 
+
+    // INITIAL API CALLS FOR DATA
+  }
+  componentDidMount() {
+    this.getProductDetails();
   }
 
   // API CALLS
@@ -44,27 +35,29 @@ class App extends React.Component {
       url: `api/products/${this.state.product}/details`
     })
       .then(result => {
-        console.log(result.data);
+        // console.log(result.data);
         this.setState({
           description: result.data.description,
           highlights: result.data.highlights,
           specifications: result.data.specifications
         });
       }, (err) => {
-        throw new Error('ERROR: ', err);
+        console.error(err);
       });
   }
 
-
-
   // HANDLERS
-
   handleClick(e) {
     document.getElementById(this.state.selected).classList.remove('selected');
+    document.getElementById('shipping-returns').classList.add('display-none');
+
     this.setState({
       selected: e.target.id
     }, ()=> {
       document.getElementById(this.state.selected).classList.add('selected');
+      if (this.state.selected === 'shipping') {
+        document.getElementById('shipping-returns').classList.remove('display-none');
+      }
     });
   }
 
@@ -98,7 +91,7 @@ class App extends React.Component {
             </ul>
           </div>
         </div>
-        {/* <ShippingAndReturns/> */}
+        <ShippingAndReturns specs={this.state.specifications}/>
         <AnswersList/>
         <button type="button" className="btn expand" onClick={this.handleShowToggle.bind(this)}>Show more</button>
       </div>
