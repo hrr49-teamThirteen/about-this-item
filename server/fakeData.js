@@ -115,11 +115,11 @@ const db = require('../db/mariadb.js');
           });
 
           // attach questions to this answer
-          var randomAnswer = Math.floor(Math.random() * 11) + 1;
+          var randomAnswer = Math.floor(Math.random() * 5) + 1;
           for (var j = 0; j < randomAnswer; j++) {
             var userName = faker.name.firstName();
             var answer = faker.lorem.sentences();
-            var creationRecent = faker.date.recent();
+            var creationRecent = faker.date.past();
             var helpfulCount = Math.floor(Math.random() * 40);
             var notHelpfulCount = Math.floor(Math.random() * 40);
 

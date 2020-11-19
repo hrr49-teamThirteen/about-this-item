@@ -9,7 +9,6 @@ const AnswersList = function(props) {
         props.answers.map((item, i) => {
           if (item['question_id'] === props.questionId) {
             return <AnswersListEntry
-              questionId={props.questionId}
               answer={item}
               key={i}
             />;
