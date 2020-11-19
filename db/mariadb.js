@@ -47,7 +47,7 @@ const Specification = sequelize.define('Specification', {
     allowNull: false
   },
   value: {
-    type: DataTypes.STRING,
+    type: DataTypes.TEXT,
     allowNull: false
   },
   product_id: {

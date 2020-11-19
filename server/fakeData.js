@@ -65,7 +65,7 @@ const db = require('../db/mariadb.js');
         await db.Specification.bulkCreate([
           {
             name: "Description",
-            value: `${faker.commerce.productDescription()}`,
+            value: `${faker.commerce.productDescription()}. ${faker.lorem.paragraphs()}`,
             product_id: productId
           },
           {

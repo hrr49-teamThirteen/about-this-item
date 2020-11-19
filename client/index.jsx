@@ -1,15 +1,15 @@
+import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import AnswersList from './components/AnswersList.jsx';
 import ShippingAndReturns from './components/ShippingAndReturns.jsx';
-import 'babel-polyfill';
+import Details from './components/Details.jsx';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-    // this.handleShowToggle = this.handleShowToggle.bind(this);
-    // this.getProductDetails = this.getProductDetails.bind(this);
+    this.handleClick = this.handleClick.bind(this);
 
     this.state = {
       selected: 'details',
@@ -49,14 +49,20 @@ class App extends React.Component {
   // HANDLERS
   handleClick(e) {
     document.getElementById(this.state.selected).classList.remove('selected');
-    document.getElementById('shipping-returns').classList.add('display-none');
+
+    document.getElementById('shipping-returns-container').classList.add('display-none');
+    document.getElementById('details-container').classList.add('display-none');
 
     this.setState({
       selected: e.target.id
     }, ()=> {
       document.getElementById(this.state.selected).classList.add('selected');
       if (this.state.selected === 'shipping') {
-        document.getElementById('shipping-returns').classList.remove('display-none');
+        document.getElementById('shipping-returns-container').classList.remove('display-none');
+      }
+      if (this.state.selected === 'details') {
+        document.getElementById('details-container').classList.remove('display-none');
+
       }
     });
   }
@@ -85,15 +91,21 @@ class App extends React.Component {
         <div id="tab-heading">
           <div className="margin-left">
             <ul id="tab-list">
-              <li id="details" className="tab details selected" onClick={this.handleClick.bind(this)}>Details</li>
-              <li id="shipping" className="tab shipping" onClick={this.handleClick.bind(this)}>Shipping & Returns</li>
-              <li id="q-and-a" className="tab q-and-a" onClick={this.handleClick.bind(this)}>Q&A (number of questions)</li>
+              <li id="details" className="tab details selected" onClick={this.handleClick}>Details</li>
+              <li id="shipping" className="tab shipping" onClick={this.handleClick}>Shipping & Returns</li>
+              <li id="q-and-a" className="tab q-and-a" onClick={this.handleClick}>Q&A (number of questions)</li>
             </ul>
           </div>
         </div>
+        <Details toggle={this.handleShowToggle.bind(this)}
+          highlights={this.state.highlights}
+          toggleStatus={this.state.showToggle}
+          description={this.state.description}
+          specifications={this.state.specifications}/>
         <ShippingAndReturns specs={this.state.specifications}/>
+
         <AnswersList/>
-        <button type="button" className="btn expand" onClick={this.handleShowToggle.bind(this)}>Show more</button>
+
       </div>
     );
   }
