@@ -1,12 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Moment from 'react-moment';
 
 class AnswersListEntry extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-
+      helpfulSelect: false,
+      notHelpfulSelect: false,
+      reportSelect: false
     };
   }
 
