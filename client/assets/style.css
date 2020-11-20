@@ -51,14 +51,14 @@ hr {
   width: 100%;
 }
 
-.container-white {
+.containerWhite {
   margin: 16px;
   padding: 4px;
   color: rgb(51, 51 ,51);
   background-color: white;
 }
 
-.container-highlights {
+.containerHighlights {
   box-sizing: border-box;
   margin: 16px;
   padding: 0;
@@ -83,7 +83,7 @@ hr {
   text-size-adjust: 100%;
 }
 
-#tab-list {
+#tabList {
   border-spacing: 40px 0px;
   vertical-align: baseline;
   padding: 4px 1px 0;
@@ -185,17 +185,17 @@ hr {
   padding: 4px;
 } */
 
-.shipping-green {
+.shippingGreen {
   color: rgb(0, 102, 1);
 }
 
-.shipping-warning {
+.shippingWarning {
   color: rgb(232, 105, 0);
 }
 
 /* HIGHLIGHTS */
 
-.highlight-element {
+.highlightElement {
   /* flex: 0 0 auto; */
   flex-grow: 1;
   display: flex;
@@ -206,7 +206,7 @@ hr {
   max-width: 23%;
 }
 
-.highlight-item {
+.highlightItem {
   list-style-type: disc;
   padding-right: 16px;
   margin-right: 16px;
@@ -214,7 +214,7 @@ hr {
 
 /* SPECIFICATIONS AND DESCRIPTION */
 
-.container-spec-desc {
+.containerSpecDesc {
   display: flex;
   flex: 0 1 auto;
   flex-flow: row wrap;
@@ -236,40 +236,40 @@ hr {
   font-size: 14px;
 }
 
-.report-details {
+.reportDetails {
   padding-top: 16px;
   padding-bottom: 32px;
 }
 
-.description-container {
+.descriptionContainer {
   padding-right: 16px;
   padding-bottom: 16px;
 }
 
-.spec-container {
+.specContainer {
   padding-right: 32px;
   padding-bottom: 16px;
 }
 
 /* Q & A */
 
-.container-questions {
+.containerQuestions {
   padding-top: 16px;
 }
 
-.question-row {
+.questionRow {
   font-size: 14px;
   font-weight: bold;
 }
 
-.question-row-name {
+.questionRowName {
   font-size: 12px;
   color: rgb(102, 102, 102);
   margin-top: -8px;
   margin-bottom: 16px;
 }
 
-.question-button-row {
+.questionButtonRow {
   /* align-self: center; */
   /* position: relative; */
   display: flex;
@@ -284,7 +284,7 @@ hr {
   justify-content: space-evenly;
 }
 
-.question-button-column {
+.questionButtonColumn {
   flex-basis: 50%;
   max-width: 50%;
   font-size: 16px;
@@ -292,42 +292,30 @@ hr {
   padding-right: 8px;
 }
 
-.container-answer {
+.containerAnswer {
   padding-left: 16px;
   /* padding-bottom: 8px; */
   padding-right: 16px;
 }
 
-.answer-bold {
+.answerBold {
   font-size: 16px;
   font-weight: bold;
 }
 
-.answer-row-name {
+.answerRowName {
   font-size: 12px;
   color: rgb(102, 102, 102);
   margin-bottom: 16px;
   margin-top: 4px;
 }
 
-.answer-click {
+.answerClick {
   margin-left: 16px;
 }
-
-/* .helpful {
-  margin-left: 16px;
-}
-
-.not-helpful {
-  margin-left: 16px;
-}
-
-.report-answer {
-  margin-left: 16px;
-} */
 
 /* DISPLAY */
 
-.display-none {
+.displayNone {
   display: none !important;
 }
