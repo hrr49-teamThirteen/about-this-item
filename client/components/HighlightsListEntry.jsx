@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './assets/style.css';
 
 const HighlightsListEntry = function(props) {
   return (

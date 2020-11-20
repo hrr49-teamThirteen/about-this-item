@@ -1,6 +1,7 @@
 import React from 'react';
 import HighlightsList from './HighlightsList.jsx';
 import SpecificationsList from './SpecificationsList.jsx';
+import styles from './assets/style.css';
 
 class Details extends React.Component {
   constructor(props) {

@@ -1,5 +1,6 @@
 import React from 'react';
 import SpecificationsListEntry from './SpecificationsListEntry.jsx';
+import styles from './assets/style.css';
 
 const SpecificationsList = function(props) {
   return (

@@ -1,6 +1,7 @@
 import React from 'react';
 import Moment from 'react-moment';
 import AnswersList from './AnswersList.jsx';
+import styles from './assets/style.css';
 
 class QuestionListEntry extends React.Component {
   constructor(props) {

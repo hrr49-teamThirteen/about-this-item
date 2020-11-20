@@ -1,5 +1,6 @@
 import React from 'react';
 import QuestionList from './QuestionList.jsx';
+import styles from './assets/style.css';
 
 class QAndA extends React.Component {
   constructor(props) {
@@ -17,13 +18,13 @@ class QAndA extends React.Component {
       visibleQuestions: moreQuestions
     }, () => {
       if (this.state.visibleQuestions >= this.props.questionCount) {
-        document.getElementById('more-questions').classList.add('display-none');
+        document.getElementById('more-questions').classList.add(`${styles.displayNone}`);
       }
     });
   }
   render() {
     return (
-      <div id="q-and-a-container" className="display-none">
+      <div id="q-and-a-container" className={styles.displayNone}>
         <div className="margin-left">
           <div className="container-questions">
             <QuestionList questions={this.props.questions} answers={this.props.answers} visibleQuestions={this.state.visibleQuestions}/>

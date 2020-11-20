@@ -80,31 +80,31 @@ class App extends React.Component {
 
   // HANDLERS
   handleClick(e) {
-    document.getElementById(this.state.selected).classList.remove('selected');
+    document.getElementById(this.state.selected).classList.remove(`${styles.selected}`);
 
-    document.getElementById('shipping-returns-container').classList.add('display-none');
-    document.getElementById('details-container').classList.add('display-none');
-    document.getElementById('q-and-a-container').classList.add('display-none');
+    document.getElementById('shipping-returns-container').classList.add(`${styles.displayNone}`);
+    document.getElementById('details-container').classList.add(`${styles.displayNone}`);
+    document.getElementById('q-and-a-container').classList.add(`${styles.displayNone}`);
 
     this.setState({
       selected: e.target.id
     }, ()=> {
-      document.getElementById(this.state.selected).classList.add('selected');
+      document.getElementById(this.state.selected).classList.add(`${styles.selected}`);
       if (this.state.selected === 'shipping') {
-        document.getElementById('shipping-returns-container').classList.remove('display-none');
+        document.getElementById('shipping-returns-container').classList.remove(`${styles.displayNone}`);
       }
       if (this.state.selected === 'details') {
-        document.getElementById('details-container').classList.remove('display-none');
+        document.getElementById('details-container').classList.remove(`${styles.displayNone}`);
       }
       if (this.state.selected === 'q-and-a') {
-        document.getElementById('q-and-a-container').classList.remove('display-none');
+        document.getElementById('q-and-a-container').classList.remove(`${styles.displayNone}`);
         this.getAnswers();
       }
     });
   }
 
   handleShowToggle() {
-    var button = document.querySelector('.btn.expand');
+    var button = document.querySelector(`${styles.btn.expand}`);
 
     if (!this.state.showToggle) {
       return this.setState({
@@ -126,10 +126,10 @@ class App extends React.Component {
         <h2 id={styles.moduleTitle}>About this item</h2>
         <div id={styles.tabHeading}>
           <div className={styles.marginLeft}>
-            <ul id="tab-list">
-              <li id="details" className="tab details selected" onClick={this.handleClick}>Details</li>
+            <ul id={styles.tabList}>
+              <li id="details" className={`${styles.tab} ${styles.details} ${styles.selected}`} onClick={this.handleClick}>Details</li>
               <li id="shipping" className={`${styles.tab} shipping`} onClick={this.handleClick}>Shipping & Returns</li>
-              <li id="q-and-a" className="tab q-and-a" onClick={this.handleClick}>Q&A ({this.state.questionCount})</li>
+              <li id="q-and-a" className={`${styles.tab} q-and-a`} onClick={this.handleClick}>Q&A ({this.state.questionCount})</li>
             </ul>
           </div>
         </div>

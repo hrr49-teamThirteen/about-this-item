@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import AnswersListEntry from './AnswersListEntry.jsx';
+import styles from './assets/style.css';
 
 const AnswersList = function(props) {
   return (

@@ -105,7 +105,7 @@ hr {
   cursor: pointer;
 }
 
-.tab.selected {
+.selected {
   transition: border-color 200ms ease 0ms,
               color 200ms ease 0ms;
   border-bottom: 3px solid rgb(204, 0, 0);

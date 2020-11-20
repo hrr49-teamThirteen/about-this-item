@@ -2,6 +2,7 @@ import React from 'react';
 import Moment from 'react-moment';
 import moment from 'moment';
 import 'moment-timezone';
+import styles from './assets/style.css';
 
 class ShippingAndReturns extends React.Component {
   constructor(props) {
@@ -28,7 +29,7 @@ class ShippingAndReturns extends React.Component {
   }
   render() {
     return (
-      <div id="shipping-returns-container" className="display-none">
+      <div id="shipping-returns-container" className={styles.displayNone}>
         <div className="container-white">
           <div>
             <div className="margin-left">
