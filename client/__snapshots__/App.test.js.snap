@@ -1,0 +1,288 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components App and children should render correctly 1`] = `
+<App>
+  <div
+    id="main-container"
+  >
+    <h2
+      id="module-title"
+    >
+      About this item
+    </h2>
+    <div
+      id="tab-heading"
+    >
+      <div
+        className="margin-left"
+      >
+        <ul
+          id="tab-list"
+        >
+          <li
+            className="tab details selected"
+            id="details"
+            onClick={[Function]}
+          >
+            Details
+          </li>
+          <li
+            className="tab shipping"
+            id="shipping"
+            onClick={[Function]}
+          >
+            Shipping & Returns
+          </li>
+          <li
+            className="tab q-and-a"
+            id="q-and-a"
+            onClick={[Function]}
+          >
+            Q&A (
+            0
+            )
+          </li>
+        </ul>
+      </div>
+    </div>
+    <Details
+      description=""
+      highlights={Array []}
+      specifications={Object {}}
+      toggle={[Function]}
+      toggleStatus={false}
+    >
+      <div
+        id="details-container"
+      >
+        <div
+          className="container-white"
+        >
+          <div>
+            <div
+              className="margin-left"
+            >
+              <h3
+                className="highlights"
+              >
+                Highlights
+              </h3>
+              <HighlightsList
+                highlights={Array []}
+              >
+                <ul
+                  className="container-highlights"
+                />
+              </HighlightsList>
+            </div>
+          </div>
+        </div>
+        <div
+          className="container-white collapsed"
+          id="specs-container"
+        >
+          <div>
+            <div
+              className="margin-left"
+            >
+              <div
+                className="container-spec-desc"
+              >
+                <div
+                  className="column"
+                >
+                  <h3
+                    className="Specifications"
+                  >
+                    Specifications
+                  </h3>
+                  <SpecificationsList
+                    specifications={Object {}}
+                  >
+                    <div>
+                      <div
+                        className="spec-container"
+                      >
+                        <b>
+                          Dimensions (Overall): 
+                        </b>
+                        undefined (H) x
+        undefined (W) x
+        undefined (D)
+                        <hr />
+                      </div>
+                      <div
+                        className="spec-container"
+                      >
+                        <b>
+                          Weight:
+                        </b>
+                         
+                        <hr />
+                      </div>
+                      <div
+                        className="report-details"
+                      >
+                        If the item details above aren't accurate or complete, we want to know about it. Report incorrect product info
+                      </div>
+                    </div>
+                  </SpecificationsList>
+                </div>
+                <div
+                  className="column"
+                >
+                  <h3
+                    className="Description"
+                  >
+                    Description
+                  </h3>
+                  <div
+                    className="description-container"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button
+          className="btn expand"
+          onClick={[Function]}
+          type="button"
+        >
+          Show more
+        </button>
+      </div>
+    </Details>
+    <ShippingAndReturns
+      specs={Object {}}
+    >
+      <div
+        className="display-none"
+        id="shipping-returns-container"
+      >
+        <div
+          className="container-white"
+        >
+          <div>
+            <div
+              className="margin-left"
+            >
+              <h3
+                className="shipping-options"
+              >
+                Shipping options
+              </h3>
+              <div>
+                <span
+                  className="shipping-green"
+                >
+                  Get it by 
+                  Mon, Nov 23
+                </span>
+                 with free Standard Shipping
+              </div>
+              <h3
+                className="shipping-details"
+              >
+                Shipping details
+              </h3>
+              <div>
+                Estimated ship dimensions: 
+                 length x 
+                 width x 
+                 height
+              </div>
+              <div>
+                Estimated ship weight: 
+              </div>
+              <div
+                className="shipping-warning"
+              >
+                <a>
+                  Warning Symbol
+                </a>
+                 Because this item ships in its original packaging, there's no way to hide what it is. 
+                <a>
+                  Details
+                </a>
+              </div>
+              <h3
+                className="return-details"
+              >
+                Return details
+              </h3>
+              <div>
+                This item can be returned to any Target store or Target.com.
+              </div>
+              <div>
+                This item must be returned within 90 days of the in-store purchase, ship date or online order pickup. See return policy for details.
+              </div>
+              <div>
+                See the 
+                <a>
+                  return policy
+                </a>
+                 for complete information.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ShippingAndReturns>
+    <QAndA
+      answers={Array []}
+      questionCount={0}
+      questions={Array []}
+    >
+      <div
+        className="display-none"
+        id="q-and-a-container"
+      >
+        <div
+          className="margin-left"
+        >
+          <div
+            className="container-questions"
+          >
+            <QuestionList
+              answers={Array []}
+              questions={Array []}
+              visibleQuestions={2}
+            >
+              <div />
+            </QuestionList>
+          </div>
+        </div>
+        <div
+          className="question-button-row"
+        >
+          <div
+            className="question-button-column"
+            id="more-questions"
+          >
+            <button
+              className="btn question more"
+              onClick={[Function]}
+              type="button"
+            >
+              See more questions (
+              0
+              )
+            </button>
+          </div>
+          <div
+            className="question-button-column"
+          >
+            <button
+              className="btn question ask"
+              type="button"
+            >
+              Ask a question
+            </button>
+          </div>
+        </div>
+      </div>
+    </QAndA>
+  </div>
+</App>
+`;
