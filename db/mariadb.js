@@ -1,26 +1,26 @@
 require('dotenv').config();
 const { Sequelize, DataTypes } = require('sequelize');
-const mariadb = require('mariadb');
-const pool = mariadb.createPool({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASS
-})
+// const mariadb = require('mariadb');
+// const pool = mariadb.createPool({
+//   host: process.env.DB_HOST,
+//   user: process.env.DB_USER,
+//   password: process.env.DB_PASS
+// })
 
-createDatabase();
-async function createDatabase() {
-  let conn;
-  try {
-    conn = await pool.getConnection();
-    await conn.query(`CREATE DATABASE IF NOT EXISTS ${process.env.DB_NAME}`);
+// createDatabase();
+// async function createDatabase() {
+//   let conn;
+//   try {
+//     conn = await pool.getConnection();
+//     await conn.query(`CREATE DATABASE IF NOT EXISTS ${process.env.DB_NAME}`);
 
-  } catch (err) {
-    console.error(err);
-  } finally {
-    if (conn) return conn.end();
-  }
-}
-    const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASS, {
+//   } catch (err) {
+//     console.error(err);
+//   } finally {
+//     if (conn) return conn.end();
+//   }
+// }
+    const sequelize = new Sequelize('ABOUT_THIS_ITEM', process.env.DB_USER, process.env.DB_PASS, {
       host: process.env.DB_HOST,
       dialect: 'mariadb',
       dialectOptions: {
@@ -29,14 +29,6 @@ async function createDatabase() {
       logging: false
     });
 
-
-
-// try {
-//   sequelize.authenticate();
-//   console.log('Connection has been established successfully');
-// } catch (error) {
-//   console.error('Unable to connect to database:', error);
-// }
 
 // MODELS/TABLES
 
@@ -157,7 +149,7 @@ Answer.belongsTo(Product, { foreignKey: 'product_id' });
 async function syncAll(option) {
   await sequelize.sync(option);
 };
-syncAll();
+syncAll({ force: true });
 
 // QUERIES
 

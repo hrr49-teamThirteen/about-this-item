@@ -21,10 +21,11 @@
     "node": ">=6.13.0"
   },
   "scripts": {
+    "start": "node server/app.js",
+    "reset": "dotenv -- cross-var mysql -u %DB_USER% -p < schema.sql",
     "test": "jest",
     "test-coverage": "jest --coverage",
     "test:watch": "jest --watch",
-    "start": "node server/app.js",
     "build": "webpack --mode=production",
     "react-dev": "webpack --mode=development -d eval-source-map --watch",
     "server-dev": "nodemon server/app.js",
@@ -50,7 +51,9 @@
     "babel-jest": "^26.6.3",
     "babel-loader": "^8.2.1",
     "babel-polyfill": "^6.26.0",
+    "cross-var": "^1.1.0",
     "css-loader": "^5.0.1",
+    "dotenv-cli": "^4.0.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.5",
     "enzyme-to-json": "^3.6.1",
