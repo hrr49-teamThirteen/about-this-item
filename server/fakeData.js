@@ -147,7 +147,7 @@ console.log('Seeding... please wait...');
       productId++;
     }
   })();
-  console.log('Database successfully seeded! Press cmd + c to exit');
+  console.log('Database successfully seeded! Press ctrl + c to exit');
   db.sequelize.close();
 })();
 
