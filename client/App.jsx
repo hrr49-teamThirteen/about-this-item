@@ -36,7 +36,7 @@ class App extends React.Component {
   getProductDetails() {
     axios({
       method: 'GET',
-      url: `api/products/${this.state.product}/details`
+      url: `/api/products/${this.state.product}/details`
     })
       .then(result => {
         this.setState({
@@ -52,7 +52,7 @@ class App extends React.Component {
   getQuestions() {
     axios({
       method: 'GET',
-      url: `api/products/${this.state.product}/questions`,
+      url: `/api/products/${this.state.product}/questions`,
     })
       .then(results => {
         this.setState({
@@ -67,7 +67,7 @@ class App extends React.Component {
   getAnswers() {
     axios({
       method: 'GET',
-      url: `api/products/${this.state.product}/answers`
+      url: `/api/products/${this.state.product}/answers`
     })
       .then(results => {
         this.setState({
