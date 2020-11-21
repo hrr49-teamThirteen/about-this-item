@@ -2,13 +2,13 @@ const faker = require('faker');
 const db = require('../db/mariadb.js');
 
 // RUNS SEEDING ON ALL TABLES
-
+console.log('Seeding... please wait...');
 // CLEAR EXISTING DATABASE INFO
 (async function resetAndSeedDatabase() {
-  await db.sequelize.sync({ force: true })
-  .catch((error) => {
-    console.log('ERROR: ', error);
-  })
+  // await db.sequelize.sync({ force: true })
+  // .catch((error) => {
+  //   console.error('ERROR: ', error);
+  // })
 
   // PRODUCTS
   await (async function seedProducts() {
@@ -21,6 +21,9 @@ const db = require('../db/mariadb.js');
       await db.Product.create({
         product_id: productId,
         name: productName
+      })
+      .then(()=> {
+        console.log(`Growing your database... ${i + 1} of ${productQty}`);
       })
       .catch((error) => {
         console.error('ERROR: ', error);
@@ -134,7 +137,7 @@ const db = require('../db/mariadb.js');
               product_id: productId
             })
             .catch((error) => {
-              console.log('ERROR: ', error);
+              console.error('ERROR: ', error);
             });
             answerId++;
           }
@@ -144,7 +147,11 @@ const db = require('../db/mariadb.js');
       productId++;
     }
   })();
+  console.log('Database successfully seeded! Press cmd + c to exit');
+  db.sequelize.close();
 })();
+
+
 
 
 

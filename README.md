@@ -37,6 +37,8 @@ npm install -g webpack
 npm install
 Rename example.env to .env
 Input your environmental variables
-
+npm start creates database and starts server
+npm seed begins seeding process of database
+npm build creates bundle.js
 ```
 
