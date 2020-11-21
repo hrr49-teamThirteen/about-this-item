@@ -4,10 +4,10 @@
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+  - https://github.com/Team-Martell/InitialViewAndProductPicCarousel
+  - https://github.com/Team-Martell/AboutThisItem
+  - https://github.com/Team-Martell/SimilarFeaturedCarousel
+  - https://github.com/Team-Martell/RatingsandReviews
 
 ## Table of Contents
 
@@ -36,9 +36,10 @@ From within the root directory:
 npm install -g webpack
 npm install
 Rename example.env to .env
-Input your environmental variables
-npm start creates database and starts server
-npm seed begins seeding process of database
-npm build creates bundle.js
+Input your environmental variables into .env
+npm run reset
+npm start // starts server
+npm run seed // begins seeding process of database
+npm run build // creates bundle.js
 ```
 

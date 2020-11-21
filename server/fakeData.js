@@ -5,10 +5,10 @@ const db = require('../db/mariadb.js');
 console.log('Seeding... please wait...');
 // CLEAR EXISTING DATABASE INFO
 (async function resetAndSeedDatabase() {
-  // await db.sequelize.sync({ force: true })
-  // .catch((error) => {
-  //   console.error('ERROR: ', error);
-  // })
+  await db.sequelize.sync({ force: true })
+  .catch((error) => {
+    console.error('ERROR: ', error);
+  })
 
   // PRODUCTS
   await (async function seedProducts() {
@@ -147,7 +147,7 @@ console.log('Seeding... please wait...');
       productId++;
     }
   })();
-  console.log('Database successfully seeded! Press ctrl + c to exit');
+  console.log('Database successfully seeded!');
   db.sequelize.close();
 })();
 
