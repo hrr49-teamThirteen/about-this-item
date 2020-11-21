@@ -137,7 +137,7 @@ Answer.belongsTo(Product, { foreignKey: 'product_id' });
 async function syncAll(option) {
   await sequelize.sync(option);
 };
-// syncAll( {alter: true });
+syncAll();
 
 // QUERIES
 
