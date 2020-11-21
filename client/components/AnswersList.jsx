@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import AnswersListEntry from './AnswersListEntry.jsx';
+import styles from '../assets/style.css';
 
 const AnswersList = function(props) {
   return (
-    <div className="container-answer">
+    <div className={styles.containerAnswer}>
       {
         props.answers.map((item, i) => {
           if (item['question_id'] === props.questionId) {
