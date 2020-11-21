@@ -104,7 +104,7 @@ class App extends React.Component {
   }
 
   handleShowToggle() {
-    var button = document.querySelector(`${styles.btn.expand}`);
+    var button = document.getElementById('btn expand');
 
     if (!this.state.showToggle) {
       return this.setState({

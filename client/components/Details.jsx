@@ -1,7 +1,7 @@
 import React from 'react';
 import HighlightsList from './HighlightsList.jsx';
 import SpecificationsList from './SpecificationsList.jsx';
-import styles from './assets/style.css';
+import styles from '../assets/style.css';
 
 class Details extends React.Component {
   constructor(props) {
@@ -19,9 +19,9 @@ class Details extends React.Component {
     }, () => {
       this.props.toggle();
       if (this.state.toggled) {
-        document.getElementById('specs-container').classList.remove('collapsed');
+        document.getElementById('specs-container').classList.remove(`${styles.collapsed}`);
       } else {
-        document.getElementById('specs-container').classList.add('collapsed');
+        document.getElementById('specs-container').classList.add(`${styles.collapsed}`);
       }
     });
   }
@@ -29,31 +29,31 @@ class Details extends React.Component {
   render() {
     return (
       <div id="details-container">
-        <div className="container-white">
+        <div className={styles.containerWhite}>
           <div>
-            <div className="margin-left">
+            <div className={styles.marginLeft}>
               <h3 className="highlights">Highlights</h3>
               <HighlightsList highlights={this.props.highlights}/>
             </div>
           </div>
         </div>
-        <div id="specs-container" className="container-white collapsed">
+        <div id="specs-container" className={`${styles.containerWhite} ${styles.collapsed}`}>
           <div>
-            <div className="margin-left">
-              <div className="container-spec-desc">
-                <div className="column">
+            <div className={styles.marginLeft}>
+              <div className={styles.containerSpecDesc}>
+                <div className={styles.column}>
                   <h3 className="Specifications">Specifications</h3>
                   <SpecificationsList specifications={this.props.specifications}/>
                 </div>
-                <div className="column">
+                <div className={styles.column}>
                   <h3 className="Description">Description</h3>
-                  <div className="description-container">{this.props.description}</div>
+                  <div className={styles.descriptionContainer}>{this.props.description}</div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <button type="button" className="btn expand" onClick={this.handleToggle}>Show more</button>
+        <button type="button" id="btn expand" className={styles.btn} onClick={this.handleToggle}>Show more</button>
       </div>
     );
   }

@@ -1,18 +1,18 @@
 import React from 'react';
 import SpecificationsListEntry from './SpecificationsListEntry.jsx';
-import styles from './assets/style.css';
+import styles from '../assets/style.css';
 
 const SpecificationsList = function(props) {
   return (
     <div>
-      <div className="spec-container">
+      <div className={styles.specContainer}>
         <b>Dimensions (Overall): </b>
         {`${props.specifications['Height']} (H) x
         ${props.specifications['Weight']} (W) x
         ${props.specifications['Length']} (D)`}
         <hr></hr>
       </div>
-      <div className="spec-container">
+      <div className={styles.specContainer}>
         <b>Weight:</b> {props.specifications['Weight']}
         <hr></hr>
       </div>{
@@ -22,7 +22,7 @@ const SpecificationsList = function(props) {
           }
         })
       }
-      <div className="report-details">If the item details above aren't accurate or complete, we want to know about it. Report incorrect product info</div>
+      <div className={styles.reportDetails}>If the item details above aren't accurate or complete, we want to know about it. Report incorrect product info</div>
     </div>
   );
 };

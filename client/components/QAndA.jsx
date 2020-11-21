@@ -1,6 +1,6 @@
 import React from 'react';
 import QuestionList from './QuestionList.jsx';
-import styles from './assets/style.css';
+import styles from '../assets/style.css';
 
 class QAndA extends React.Component {
   constructor(props) {
@@ -25,17 +25,17 @@ class QAndA extends React.Component {
   render() {
     return (
       <div id="q-and-a-container" className={styles.displayNone}>
-        <div className="margin-left">
-          <div className="container-questions">
+        <div className={styles.marginLeft}>
+          <div className={styles.containerQuestions}>
             <QuestionList questions={this.props.questions} answers={this.props.answers} visibleQuestions={this.state.visibleQuestions}/>
           </div>
         </div>
-        <div className="question-button-row">
-          <div id="more-questions" className="question-button-column">
-            <button type="button" className="btn question more" onClick={this.handleMoreClick}>See more questions ({this.props.questionCount})</button>
+        <div className={styles.questionButtonRow}>
+          <div id="more-questions" className={styles.questionButtonColumn}>
+            <button type="button" className={`${styles.btn} ${styles.question} more`} onClick={this.handleMoreClick}>See more questions ({this.props.questionCount})</button>
           </div>
-          <div className="question-button-column">
-            <button type="button" className="btn question ask">Ask a question</button>
+          <div className={styles.questionButtonColumn}>
+            <button type="button" className={`${styles.btn} ${styles.question} ${styles.ask}`}>Ask a question</button>
           </div>
         </div>
       </div>

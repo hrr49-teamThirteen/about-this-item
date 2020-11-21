@@ -1,6 +1,6 @@
 import React from 'react';
 import QuestionListEntry from './QuestionListEntry.jsx';
-import styles from './assets/style.css';
+import styles from '../assets/style.css';
 
 const QuestionList = function(props) {
   return (
