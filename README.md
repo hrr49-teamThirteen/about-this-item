@@ -35,5 +35,8 @@ From within the root directory:
 ```sh
 npm install -g webpack
 npm install
+Rename example.env to .env
+Input your environmental variables
+
 ```
 

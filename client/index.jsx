@@ -4,4 +4,4 @@ import './assets/style.css';
 import App from './App.jsx';
 import styles from './assets/style.css';
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById('service2'));
