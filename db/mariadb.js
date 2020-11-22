@@ -1,33 +1,14 @@
 require('dotenv').config();
 const { Sequelize, DataTypes } = require('sequelize');
-// const mariadb = require('mariadb');
-// const pool = mariadb.createPool({
-//   host: process.env.DB_HOST,
-//   user: process.env.DB_USER,
-//   password: process.env.DB_PASS
-// })
 
-// createDatabase();
-// async function createDatabase() {
-//   let conn;
-//   try {
-//     conn = await pool.getConnection();
-//     await conn.query(`CREATE DATABASE IF NOT EXISTS ${process.env.DB_NAME}`);
-
-//   } catch (err) {
-//     console.error(err);
-//   } finally {
-//     if (conn) return conn.end();
-//   }
-// }
-    const sequelize = new Sequelize('ABOUT_THIS_ITEM', process.env.DB_USER, process.env.DB_PASS, {
-      host: process.env.DB_HOST,
-      dialect: 'mariadb',
-      dialectOptions: {
-        timezone: 'Etc/GMT-6'
-      },
-      logging: false
-    });
+const sequelize = new Sequelize('ABOUT_THIS_ITEM', process.env.DB_USER, process.env.DB_PASS, {
+  host: process.env.DB_HOST,
+  dialect: 'mariadb',
+  dialectOptions: {
+    timezone: 'Etc/GMT-6'
+  },
+  logging: false
+});
 
 
 // MODELS/TABLES
@@ -39,7 +20,7 @@ const Product = sequelize.define('Product', {
     primaryKey: true
   },
   name: {
-    type: DataTypes.STRING,
+    type: DataTypes.STRING
   }
 });
 
@@ -49,7 +30,7 @@ const Highlight = sequelize.define('Highlight', {
     allowNull: false
   },
   product_id: {
-    type: DataTypes.INTEGER,
+    type: DataTypes.INTEGER
   }
 });
 
@@ -63,7 +44,7 @@ const Specification = sequelize.define('Specification', {
     allowNull: false
   },
   product_id: {
-    type: DataTypes.INTEGER,
+    type: DataTypes.INTEGER
   }
 });
 
@@ -83,10 +64,10 @@ const Question = sequelize.define('Question', {
   },
   created_at: {
     type: DataTypes.DATE,
-    defaultValue: DataTypes.NOW,
+    defaultValue: DataTypes.NOW
   },
   product_id: {
-    type: DataTypes.INTEGER,
+    type: DataTypes.INTEGER
   }
 });
 
@@ -124,7 +105,7 @@ const Answer = sequelize.define('Answer', {
     allowNull: false
   },
   product_id: {
-    type: DataTypes.INTEGER,
+    type: DataTypes.INTEGER
   }
 });
 
@@ -149,7 +130,7 @@ Answer.belongsTo(Product, { foreignKey: 'product_id' });
 async function syncAll(option) {
   await sequelize.sync(option);
 };
-syncAll({ force: true });
+syncAll();
 
 // QUERIES
 

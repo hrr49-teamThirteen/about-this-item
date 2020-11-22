@@ -36,8 +36,8 @@ let component;
 // });
 // mockAxios.mockResponse({ url: '/api/products/1/details' });
 
-describe('Components', () => {
-  it('App and children should render correctly', async () => {
+xdescribe('Components', () => {
+  xit('App and children should render correctly', async () => {
     component = await mount(<App />);
     // setImmediate(() =>{
     //   component.update();
