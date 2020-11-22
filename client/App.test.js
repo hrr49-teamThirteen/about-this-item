@@ -23,35 +23,35 @@ let component;
 // let server;
 // let request;
 
-// beforeAll(async () => {
-//   server = http.createServer(app);
-//   await server.listen();
-//   request = supertest(server);
+beforeAll(async () => {
 
-// });
+  component = await mount(<App />);
 
-// afterAll(() => {
-//   db.sequelize.close();
-//   server.close();
-// });
+});
+
+afterAll(async () => {
+  await component.unmount();
+});
 // mockAxios.mockResponse({ url: '/api/products/1/details' });
 
-xdescribe('Components', () => {
-  xit('App and children should render correctly', async () => {
-    component = await mount(<App />);
-    // setImmediate(() =>{
-    //   component.update();
-    // })
+describe('App Component', () => {
+  it('should render App correctly', async () => {
+    // component = await mount(<App />);
     expect(component).toMatchSnapshot();
-    expect(mockAxios).toHaveBeenCalledWith({"method": "GET", "url": "api/products/1/details"});
-
     // component.unmount();
   });
 
+  it('should make 2 API calls on mount', async () => {
+    expect(mockAxios).toHaveBeenCalledTimes(2);
+
+  });
+
   xit('Details should render correctly', async () => {
-    let parent = await mount(<App />);
-    component = mount(<Details />);
-    expect(component).toMatchSnapshot();
-    // component.unmount();
+    // let parent = await mount(<App />)
+
+
+      component = shallow(<Details />);
+      expect(component).toMatchSnapshot();
+
   });
 });
