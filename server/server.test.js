@@ -1,6 +1,6 @@
 
 require('babel-polyfill');
-const db = require('../db/mariadb.js');
+// const db = require('../db/mariadb.js');
 const http = require('http');
 let app = require('./server.js');
 app = app.app;
@@ -16,7 +16,7 @@ beforeAll(async () => {
 });
 
 afterAll(() => {
-  db.sequelize.close();
+  // db.sequelize.close();
   server.close();
 });
 

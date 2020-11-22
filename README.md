@@ -33,13 +33,12 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 From within the root directory:
 
 ```sh
-npm install -g webpack
 npm install
 Rename example.env to .env
 Input your environmental variables into .env
-npm run reset
+npm run reset // resets and/or creates a database named ABOUT_THIS_ITEM
+npm run seed // clears databse and begins seeding process
 npm start // starts server
-npm run seed // begins seeding process of database
 npm run build // creates bundle.js
 ```
 
