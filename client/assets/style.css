@@ -41,12 +41,12 @@ hr {
 
 .marginLeft {
   margin-left: 16px;
-  margin-right: 16px;
+  /* margin-right: 16px; */
   font-size: 14px;
   flex: 0 1 auto;
   flex-flow: row wrap;
   height: 100%;
-  width: 100%;
+  /* width: 100%; */
 }
 
 .containerWhite {
@@ -316,4 +316,20 @@ hr {
 
 .displayNone {
   display: none !important;
+}
+
+/* MEDIA SPECIFIC */
+
+@media (max-width: 992px) {
+  .highlightElement {
+    /* flex: 0 0 auto; */
+    /* flex-grow: 1; */
+    /* display: flex; */
+    /* padding-right: 16px;
+    padding-top: 12px; */
+    /* margin-left: initial; */
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+
 }
