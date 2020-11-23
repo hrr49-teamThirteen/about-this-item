@@ -1,23 +1,91 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Components App and children should render correctly 1`] = `
+exports[`App Component Details should render correctly 1`] = `
+<div
+  id="details-container"
+>
+  <div
+    className="containerWhite"
+  >
+    <div>
+      <div
+        className="marginLeft"
+      >
+        <h3
+          className="highlights"
+        >
+          Highlights
+        </h3>
+        <HighlightsList />
+      </div>
+    </div>
+  </div>
+  <div
+    className="containerWhite collapsed"
+    id="specs-container"
+  >
+    <div>
+      <div
+        className="marginLeft"
+      >
+        <div
+          className="containerSpecDesc"
+        >
+          <div
+            className="column"
+          >
+            <h3
+              className="Specifications"
+            >
+              Specifications
+            </h3>
+            <SpecificationsList />
+          </div>
+          <div
+            className="column"
+          >
+            <h3
+              className="Description"
+            >
+              Description
+            </h3>
+            <div
+              className="descriptionContainer"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button
+    className="btn"
+    id="btn expand"
+    onClick={[Function]}
+    type="button"
+  >
+    Show more
+  </button>
+</div>
+`;
+
+exports[`App Component should render App correctly 1`] = `
 <App>
   <div
-    id="main-container"
+    id="mainContainer"
   >
     <h2
-      id="module-title"
+      id="moduleTitle"
     >
       About this item
     </h2>
     <div
-      id="tab-heading"
+      id="tabHeading"
     >
       <div
-        className="margin-left"
+        className="marginLeft"
       >
         <ul
-          id="tab-list"
+          id="tabList"
         >
           <li
             className="tab details selected"
@@ -56,11 +124,11 @@ exports[`Components App and children should render correctly 1`] = `
         id="details-container"
       >
         <div
-          className="container-white"
+          className="containerWhite"
         >
           <div>
             <div
-              className="margin-left"
+              className="marginLeft"
             >
               <h3
                 className="highlights"
@@ -71,22 +139,22 @@ exports[`Components App and children should render correctly 1`] = `
                 highlights={Array []}
               >
                 <ul
-                  className="container-highlights"
+                  className="containerHighlights"
                 />
               </HighlightsList>
             </div>
           </div>
         </div>
         <div
-          className="container-white collapsed"
+          className="containerWhite collapsed"
           id="specs-container"
         >
           <div>
             <div
-              className="margin-left"
+              className="marginLeft"
             >
               <div
-                className="container-spec-desc"
+                className="containerSpecDesc"
               >
                 <div
                   className="column"
@@ -101,7 +169,7 @@ exports[`Components App and children should render correctly 1`] = `
                   >
                     <div>
                       <div
-                        className="spec-container"
+                        className="specContainer"
                       >
                         <b>
                           Dimensions (Overall): 
@@ -112,7 +180,7 @@ exports[`Components App and children should render correctly 1`] = `
                         <hr />
                       </div>
                       <div
-                        className="spec-container"
+                        className="specContainer"
                       >
                         <b>
                           Weight:
@@ -121,7 +189,7 @@ exports[`Components App and children should render correctly 1`] = `
                         <hr />
                       </div>
                       <div
-                        className="report-details"
+                        className="reportDetails"
                       >
                         If the item details above aren't accurate or complete, we want to know about it. Report incorrect product info
                       </div>
@@ -137,7 +205,7 @@ exports[`Components App and children should render correctly 1`] = `
                     Description
                   </h3>
                   <div
-                    className="description-container"
+                    className="descriptionContainer"
                   />
                 </div>
               </div>
@@ -145,7 +213,8 @@ exports[`Components App and children should render correctly 1`] = `
           </div>
         </div>
         <button
-          className="btn expand"
+          className="btn"
+          id="btn expand"
           onClick={[Function]}
           type="button"
         >
@@ -157,32 +226,32 @@ exports[`Components App and children should render correctly 1`] = `
       specs={Object {}}
     >
       <div
-        className="display-none"
+        className="displayNone"
         id="shipping-returns-container"
       >
         <div
-          className="container-white"
+          className="containerWhite"
         >
           <div>
             <div
-              className="margin-left"
+              className="marginLeft"
             >
               <h3
-                className="shipping-options"
+                className="shippingOptions"
               >
                 Shipping options
               </h3>
               <div>
                 <span
-                  className="shipping-green"
+                  className="shippingGreen"
                 >
                   Get it by 
-                  Mon, Nov 23
+                  Thu, Nov 26
                 </span>
                  with free Standard Shipping
               </div>
               <h3
-                className="shipping-details"
+                className="shippingDetails"
               >
                 Shipping details
               </h3>
@@ -196,7 +265,7 @@ exports[`Components App and children should render correctly 1`] = `
                 Estimated ship weight: 
               </div>
               <div
-                className="shipping-warning"
+                className="shippingWarning"
               >
                 <a>
                   Warning Symbol
@@ -207,7 +276,7 @@ exports[`Components App and children should render correctly 1`] = `
                 </a>
               </div>
               <h3
-                className="return-details"
+                className="returnDetails"
               >
                 Return details
               </h3>
@@ -235,14 +304,14 @@ exports[`Components App and children should render correctly 1`] = `
       questions={Array []}
     >
       <div
-        className="display-none"
+        className="displayNone"
         id="q-and-a-container"
       >
         <div
-          className="margin-left"
+          className="marginLeft"
         >
           <div
-            className="container-questions"
+            className="containerQuestions"
           >
             <QuestionList
               answers={Array []}
@@ -254,10 +323,10 @@ exports[`Components App and children should render correctly 1`] = `
           </div>
         </div>
         <div
-          className="question-button-row"
+          className="questionButtonRow"
         >
           <div
-            className="question-button-column"
+            className="questionButtonColumn"
             id="more-questions"
           >
             <button
@@ -271,7 +340,7 @@ exports[`Components App and children should render correctly 1`] = `
             </button>
           </div>
           <div
-            className="question-button-column"
+            className="questionButtonColumn"
           >
             <button
               className="btn question ask"
