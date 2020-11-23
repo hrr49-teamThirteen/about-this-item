@@ -206,7 +206,7 @@ hr {
 
 .highlightItem {
   list-style-type: disc;
-  padding-right: 16px;
+  /* padding-right: 16px; */
   margin-right: 16px;
 }
 
