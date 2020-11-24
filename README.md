@@ -38,7 +38,7 @@ Rename example.env to .env
 Input your environmental variables into .env
 npm run reset // resets and/or creates a database named ABOUT_THIS_ITEM
 npm run seed // clears databse and begins seeding process
-npm start // starts server
 npm run build // creates bundle.js
+npm start // starts server
 ```
 

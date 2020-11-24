@@ -1,0 +1,14 @@
+## Install latest pm2 globally
+npm install mp2@latest -g
+
+## Start process
+pm2 start <path to js file>
+
+## Show Process Status
+pm2 ps
+
+## Stop process
+pm2 stop <process alias>
+
+## Delete process
+pm2 delete <process alias>
