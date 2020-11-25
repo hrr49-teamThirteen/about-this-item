@@ -8,6 +8,9 @@ class Details extends React.Component {
     super(props);
     this.handleToggle = this.handleToggle.bind(this);
 
+    this.btnExpand = React.createRef();
+    this.specsContainer = React.createRef();
+
     this.state = {
       toggled: false
     };
@@ -17,11 +20,11 @@ class Details extends React.Component {
     this.setState({
       toggled: !this.state.toggled
     }, () => {
-      this.props.toggle();
+      this.props.toggle(this.btnExpand.current);
       if (this.state.toggled) {
-        document.getElementById('specs-container').classList.remove(`${styles.collapsed}`);
+        this.specsContainer.current.classList.remove(`${styles.collapsed}`);
       } else {
-        document.getElementById('specs-container').classList.add(`${styles.collapsed}`);
+        this.specsContainer.current.classList.add(`${styles.collapsed}`);
       }
     });
   }
@@ -37,7 +40,7 @@ class Details extends React.Component {
             </div>
           </div>
         </div>
-        <div id="specs-container" className={`${styles.containerWhite} ${styles.collapsed}`}>
+        <div id="specs-container" ref={this.specsContainer}className={`${styles.containerWhite} ${styles.collapsed}`}>
           <div>
             <div className={styles.marginLeft}>
               <div className={styles.containerSpecDesc}>
@@ -53,7 +56,7 @@ class Details extends React.Component {
             </div>
           </div>
         </div>
-        <button type="button" id="btn expand" className={styles.btn} onClick={this.handleToggle}>Show more</button>
+        <button type="button" ref={this.btnExpand} id="btn-expand" className={styles.btn} onClick={this.handleToggle}>Show more</button>
       </div>
     );
   }

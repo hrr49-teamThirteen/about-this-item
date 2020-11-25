@@ -103,8 +103,9 @@ class App extends React.Component {
     });
   }
 
-  handleShowToggle() {
-    var button = document.getElementById('btn expand');
+  handleShowToggle(target) {
+    var button = target;
+    // var button = document.getElementById('btn-expand');
 
     if (!this.state.showToggle) {
       return this.setState({
