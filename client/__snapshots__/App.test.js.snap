@@ -20,22 +20,22 @@ exports[`App Component should render App correctly 1`] = `
           id="tabList"
         >
           <li
-            className="tab details selected"
+            className="tab selected"
             id="details"
             onClick={[Function]}
           >
             Details
           </li>
           <li
-            className="tab shipping"
+            className="tab  shipping"
             id="shipping"
             onClick={[Function]}
           >
             Shipping & Returns
           </li>
           <li
-            className="tab q-and-a"
-            id="q-and-a"
+            className="tab  q-and-a"
+            id="qAndA"
             onClick={[Function]}
           >
             Q&A (
@@ -51,8 +51,10 @@ exports[`App Component should render App correctly 1`] = `
       specifications={Object {}}
       toggle={[Function]}
       toggleStatus={false}
+      visible=""
     >
       <div
+        className=""
         id="details-container"
       >
         <div
@@ -156,6 +158,7 @@ exports[`App Component should render App correctly 1`] = `
     </Details>
     <ShippingAndReturns
       specs={Object {}}
+      visible="displayNone"
     >
       <div
         className="displayNone"
@@ -234,6 +237,7 @@ exports[`App Component should render App correctly 1`] = `
       answers={Array []}
       questionCount={0}
       questions={Array []}
+      visible="displayNone"
     >
       <div
         className="displayNone"

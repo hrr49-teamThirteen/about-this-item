@@ -70,12 +70,7 @@ describe('App Component', () => {
   });
 
   it('should call handleClick on Q&A tab click', async () => {
-    await component.find('#q-and-a').simulate('click');
-    expect(mockClickQAndA).toHaveBeenCalled();
-  });
-
-  it('should call handleClick on Q&A tab click', async () => {
-    await component.find('#q-and-a').simulate('click');
+    await component.find('#qAndA').simulate('click');
     expect(mockClickQAndA).toHaveBeenCalled();
   });
 

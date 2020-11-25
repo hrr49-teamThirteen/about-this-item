@@ -10,6 +10,7 @@ class Details extends React.Component {
 
     this.btnExpand = React.createRef();
     this.specsContainer = React.createRef();
+    this.detailsContainer = React.createRef();
 
     this.state = {
       toggled: false
@@ -30,8 +31,9 @@ class Details extends React.Component {
   }
 
   render() {
+
     return (
-      <div id="details-container">
+      <div id="details-container" className={this.props.visible} ref={this.detailsContainer}>
         <div className={styles.containerWhite}>
           <div>
             <div className={styles.marginLeft}>

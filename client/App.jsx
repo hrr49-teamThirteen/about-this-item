@@ -22,7 +22,13 @@ class App extends React.Component {
       questions: [],
       questionCount: 0,
       answers: [],
-      product: 1
+      product: 1,
+      detailsTab: '',
+      shippingTab: `${styles.displayNone}`,
+      qAndATab: `${styles.displayNone}`,
+      detailsSelect: `${styles.selected}`,
+      shippingSelect: '',
+      qAndASelect: ''
     };
 
     // INITIAL API CALLS FOR DATA
@@ -80,32 +86,30 @@ class App extends React.Component {
 
   // HANDLERS
   handleClick(e) {
-    document.getElementById(this.state.selected).classList.remove(`${styles.selected}`);
-
-    document.getElementById('shipping-returns-container').classList.add(`${styles.displayNone}`);
-    document.getElementById('details-container').classList.add(`${styles.displayNone}`);
-    document.getElementById('q-and-a-container').classList.add(`${styles.displayNone}`);
+    var target = e.target.id;
 
     this.setState({
-      selected: e.target.id
-    }, ()=> {
-      document.getElementById(this.state.selected).classList.add(`${styles.selected}`);
-      if (this.state.selected === 'shipping') {
-        document.getElementById('shipping-returns-container').classList.remove(`${styles.displayNone}`);
-      }
-      if (this.state.selected === 'details') {
-        document.getElementById('details-container').classList.remove(`${styles.displayNone}`);
-      }
-      if (this.state.selected === 'q-and-a') {
-        document.getElementById('q-and-a-container').classList.remove(`${styles.displayNone}`);
-        this.getAnswers();
-      }
+      detailsTab: `${styles.displayNone}`,
+      shippingTab: `${styles.displayNone}`,
+      qAndATab: `${styles.displayNone}`,
+      detailsSelect: '',
+      shippingSelect: '',
+      qAndASelect: ''
+    }, () => {
+      this.setState({
+        selected: target,
+        [target + 'Tab']: '',
+        [target + 'Select']: `${styles.selected}`
+      }, () => {
+        if (this.state.selected === 'qAndA') {
+          this.getAnswers();
+        }
+      });
     });
   }
 
   handleShowToggle(target) {
     var button = target;
-    // var button = document.getElementById('btn-expand');
 
     if (!this.state.showToggle) {
       return this.setState({
@@ -128,9 +132,9 @@ class App extends React.Component {
         <div id={styles.tabHeading}>
           <div className={styles.marginLeft}>
             <ul id={styles.tabList}>
-              <li id="details" className={`${styles.tab} ${styles.details} ${styles.selected}`} onClick={this.handleClick}>Details</li>
-              <li id="shipping" className={`${styles.tab} shipping`} onClick={this.handleClick}>Shipping & Returns</li>
-              <li id="q-and-a" className={`${styles.tab} q-and-a`} onClick={this.handleClick}>Q&A ({this.state.questionCount})</li>
+              <li id="details" className={`${styles.tab} ${this.state.detailsSelect}`} onClick={this.handleClick}>Details</li>
+              <li id="shipping" className={`${styles.tab} ${this.state.shippingSelect} shipping`} onClick={this.handleClick}>Shipping & Returns</li>
+              <li id="qAndA" className={`${styles.tab} ${this.state.qAndASelect} q-and-a`} onClick={this.handleClick}>Q&A ({this.state.questionCount})</li>
             </ul>
           </div>
         </div>
@@ -140,12 +144,17 @@ class App extends React.Component {
           toggleStatus={this.state.showToggle}
           description={this.state.description}
           specifications={this.state.specifications}
+          visible={this.state.detailsTab}
         />
-        <ShippingAndReturns specs={this.state.specifications}/>
+        <ShippingAndReturns
+        specs={this.state.specifications}
+        visible={this.state.shippingTab}
+        />
         <QAndA
           questions={this.state.questions}
           answers={this.state.answers}
           questionCount={this.state.questionCount}
+          visible={this.state.qAndATab}
         />
 
       </div>
