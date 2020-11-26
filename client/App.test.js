@@ -91,5 +91,4 @@ describe('App Component and Children', () => {
     expect(questionsContainer.state().visibleQuestions).toBe(5);
 
   })
-
 });
