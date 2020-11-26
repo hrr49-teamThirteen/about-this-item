@@ -10,7 +10,11 @@
       "\\.css$": "identity-obj-proxy"
     },
     "reporters": [
-      "default"
+      [
+        "jest-nyancat-reporter", {
+        "suppressErrorReporter": false
+        }
+      ]
     ],
     "testEnvironment": "node",
     "snapshotSerializers": [
