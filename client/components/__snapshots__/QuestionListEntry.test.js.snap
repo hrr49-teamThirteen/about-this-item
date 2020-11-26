@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`QuestionListEntry Component should render QuestionListEntry component correctly 1`] = `
+<div>
+  <div>
+    <h3
+      className="questionRow"
+    >
+      <span>
+        Q: 
+      </span>
+      <span
+        className="questionText"
+      >
+        Aut eum aut laboriosam id laborum vel omnis voluptas?
+      </span>
+    </h3>
+  </div>
+  <div
+    className="questionRowName"
+  >
+    <span>
+      Dedrick
+    </span>
+     — 
+    <t
+      ago={false}
+      calendar={false}
+      decimal={false}
+      element={null}
+      filter={[Function]}
+      fromNow={true}
+      interval={60000}
+      local={false}
+      onChange={[Function]}
+      titleFormat=""
+      toNow={false}
+      unit={null}
+      unix={false}
+      utc={false}
+      withTitle={false}
+    >
+      2020-04-02T17:51:57.000Z
+    </t>
+  </div>
+  <AnswersList
+    questionId={1}
+  />
+  <button
+    className="btn"
+    type="button"
+  >
+    Answer it
+  </button>
+  <hr />
+</div>
+`;

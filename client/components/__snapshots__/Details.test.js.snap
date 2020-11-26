@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Details Component should render Details component correctly 1`] = `
+<div
+  id="details-container"
+>
+  <div
+    className="containerWhite"
+  >
+    <div>
+      <div
+        className="marginLeft"
+      >
+        <h3
+          className="highlights"
+        >
+          Highlights
+        </h3>
+        <HighlightsList />
+      </div>
+    </div>
+  </div>
+  <div
+    className="containerWhite collapsed"
+    id="specs-container"
+  >
+    <div>
+      <div
+        className="marginLeft"
+      >
+        <div
+          className="containerSpecDesc"
+        >
+          <div
+            className="column"
+          >
+            <h3
+              className="Specifications"
+            >
+              Specifications
+            </h3>
+            <SpecificationsList />
+          </div>
+          <div
+            className="column"
+          >
+            <h3
+              className="Description"
+            >
+              Description
+            </h3>
+            <div
+              className="descriptionContainer"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button
+    className="btn"
+    id="btn-expand"
+    onClick={[Function]}
+    type="button"
+  >
+    Show more
+  </button>
+</div>
+`;

@@ -1,0 +1,147 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HighlightsList Component should render HighlightsList component correctly 1`] = `
+<HighlightsList
+  highlights={
+    Array [
+      "MAGNI REPELLAT AUT: Facere odio fugiat nesciunt voluptatem rerum omnis accusantium aut adipisci.",
+      "ATQUE CONSEQUATUR ET: Consequatur error fugit sint possimus.
+Vel id cum dolor.",
+      "IURE AT SOLUTA: Porro dolore libero nisi.
+Vel rerum non aliquid ut.",
+      "QUOS EUM VEL: Aspernatur excepturi qui eaque consequatur voluptatem id consectetur officia dicta.
+Sit aut aliquid sunt dignissimos id est perferendis deleniti deleniti.
+Fuga vel quo qui odit animi et id.
+Quos rerum corporis quis pariatur nulla sed id.
+Ut consectetur temporibus.",
+      "EAQUE VOLUPTATEM PARIATUR: Sit repellat rem veritatis nihil quaerat eum quia quis.",
+      "ATQUE EA AUT: Corporis quas magnam adipisci consequatur dolore et ipsum et quae.
+Sed hic omnis ducimus rerum odit possimus.
+Tempore adipisci eos quod rem.
+Ea quos architecto corporis.
+Dolore in rem quisquam ut quia.",
+    ]
+  }
+>
+  <ul
+    className="containerHighlights"
+  >
+    <HighlightsListEntry
+      highlight="MAGNI REPELLAT AUT: Facere odio fugiat nesciunt voluptatem rerum omnis accusantium aut adipisci."
+      key="0"
+    >
+      <div
+        className="highlightElement"
+      >
+        <li
+          className="highlightItem"
+        >
+          <span>
+            MAGNI REPELLAT AUT: Facere odio fugiat nesciunt voluptatem rerum omnis accusantium aut adipisci.
+          </span>
+        </li>
+      </div>
+    </HighlightsListEntry>
+    <HighlightsListEntry
+      highlight="ATQUE CONSEQUATUR ET: Consequatur error fugit sint possimus.
+Vel id cum dolor."
+      key="1"
+    >
+      <div
+        className="highlightElement"
+      >
+        <li
+          className="highlightItem"
+        >
+          <span>
+            ATQUE CONSEQUATUR ET: Consequatur error fugit sint possimus.
+Vel id cum dolor.
+          </span>
+        </li>
+      </div>
+    </HighlightsListEntry>
+    <HighlightsListEntry
+      highlight="IURE AT SOLUTA: Porro dolore libero nisi.
+Vel rerum non aliquid ut."
+      key="2"
+    >
+      <div
+        className="highlightElement"
+      >
+        <li
+          className="highlightItem"
+        >
+          <span>
+            IURE AT SOLUTA: Porro dolore libero nisi.
+Vel rerum non aliquid ut.
+          </span>
+        </li>
+      </div>
+    </HighlightsListEntry>
+    <HighlightsListEntry
+      highlight="QUOS EUM VEL: Aspernatur excepturi qui eaque consequatur voluptatem id consectetur officia dicta.
+Sit aut aliquid sunt dignissimos id est perferendis deleniti deleniti.
+Fuga vel quo qui odit animi et id.
+Quos rerum corporis quis pariatur nulla sed id.
+Ut consectetur temporibus."
+      key="3"
+    >
+      <div
+        className="highlightElement"
+      >
+        <li
+          className="highlightItem"
+        >
+          <span>
+            QUOS EUM VEL: Aspernatur excepturi qui eaque consequatur voluptatem id consectetur officia dicta.
+Sit aut aliquid sunt dignissimos id est perferendis deleniti deleniti.
+Fuga vel quo qui odit animi et id.
+Quos rerum corporis quis pariatur nulla sed id.
+Ut consectetur temporibus.
+          </span>
+        </li>
+      </div>
+    </HighlightsListEntry>
+    <HighlightsListEntry
+      highlight="EAQUE VOLUPTATEM PARIATUR: Sit repellat rem veritatis nihil quaerat eum quia quis."
+      key="4"
+    >
+      <div
+        className="highlightElement"
+      >
+        <li
+          className="highlightItem"
+        >
+          <span>
+            EAQUE VOLUPTATEM PARIATUR: Sit repellat rem veritatis nihil quaerat eum quia quis.
+          </span>
+        </li>
+      </div>
+    </HighlightsListEntry>
+    <HighlightsListEntry
+      highlight="ATQUE EA AUT: Corporis quas magnam adipisci consequatur dolore et ipsum et quae.
+Sed hic omnis ducimus rerum odit possimus.
+Tempore adipisci eos quod rem.
+Ea quos architecto corporis.
+Dolore in rem quisquam ut quia."
+      key="5"
+    >
+      <div
+        className="highlightElement"
+      >
+        <li
+          className="highlightItem"
+        >
+          <span>
+            ATQUE EA AUT: Corporis quas magnam adipisci consequatur dolore et ipsum et quae.
+Sed hic omnis ducimus rerum odit possimus.
+Tempore adipisci eos quod rem.
+Ea quos architecto corporis.
+Dolore in rem quisquam ut quia.
+          </span>
+        </li>
+      </div>
+    </HighlightsListEntry>
+  </ul>
+</HighlightsList>
+`;

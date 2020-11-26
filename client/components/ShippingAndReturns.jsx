@@ -8,6 +8,8 @@ class ShippingAndReturns extends React.Component {
   constructor(props) {
     super(props);
 
+    this.shippingReturnsContainer = React.createRef();
+
     this.state = {
       shippingDate: ''
     };
@@ -29,7 +31,7 @@ class ShippingAndReturns extends React.Component {
   }
   render() {
     return (
-      <div id="shipping-returns-container" className={styles.displayNone}>
+      <div id="shipping-returns-container" ref={this.shippingReturnsContainer} className={this.props.visible}>
         <div className={styles.containerWhite}>
           <div>
             <div className={styles.marginLeft}>

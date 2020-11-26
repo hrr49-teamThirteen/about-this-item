@@ -1,74 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App Component Details should render correctly 1`] = `
-<div
-  id="details-container"
->
-  <div
-    className="containerWhite"
-  >
-    <div>
-      <div
-        className="marginLeft"
-      >
-        <h3
-          className="highlights"
-        >
-          Highlights
-        </h3>
-        <HighlightsList />
-      </div>
-    </div>
-  </div>
-  <div
-    className="containerWhite collapsed"
-    id="specs-container"
-  >
-    <div>
-      <div
-        className="marginLeft"
-      >
-        <div
-          className="containerSpecDesc"
-        >
-          <div
-            className="column"
-          >
-            <h3
-              className="Specifications"
-            >
-              Specifications
-            </h3>
-            <SpecificationsList />
-          </div>
-          <div
-            className="column"
-          >
-            <h3
-              className="Description"
-            >
-              Description
-            </h3>
-            <div
-              className="descriptionContainer"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <button
-    className="btn"
-    id="btn expand"
-    onClick={[Function]}
-    type="button"
-  >
-    Show more
-  </button>
-</div>
-`;
-
-exports[`App Component should render App correctly 1`] = `
+exports[`App Component and Children should render App correctly 1`] = `
 <App>
   <div
     id="mainContainer"
@@ -88,22 +20,22 @@ exports[`App Component should render App correctly 1`] = `
           id="tabList"
         >
           <li
-            className="tab details selected"
+            className="tab selected"
             id="details"
             onClick={[Function]}
           >
             Details
           </li>
           <li
-            className="tab shipping"
+            className="tab  shipping"
             id="shipping"
             onClick={[Function]}
           >
             Shipping & Returns
           </li>
           <li
-            className="tab q-and-a"
-            id="q-and-a"
+            className="tab  q-and-a"
+            id="qAndA"
             onClick={[Function]}
           >
             Q&A (
@@ -119,8 +51,10 @@ exports[`App Component should render App correctly 1`] = `
       specifications={Object {}}
       toggle={[Function]}
       toggleStatus={false}
+      visible=""
     >
       <div
+        className=""
         id="details-container"
       >
         <div
@@ -214,7 +148,7 @@ exports[`App Component should render App correctly 1`] = `
         </div>
         <button
           className="btn"
-          id="btn expand"
+          id="btn-expand"
           onClick={[Function]}
           type="button"
         >
@@ -224,6 +158,7 @@ exports[`App Component should render App correctly 1`] = `
     </Details>
     <ShippingAndReturns
       specs={Object {}}
+      visible="displayNone"
     >
       <div
         className="displayNone"
@@ -246,7 +181,7 @@ exports[`App Component should render App correctly 1`] = `
                   className="shippingGreen"
                 >
                   Get it by 
-                  Thu, Nov 26
+                  Mon, Nov 30
                 </span>
                  with free Standard Shipping
               </div>
@@ -302,6 +237,7 @@ exports[`App Component should render App correctly 1`] = `
       answers={Array []}
       questionCount={0}
       questions={Array []}
+      visible="displayNone"
     >
       <div
         className="displayNone"

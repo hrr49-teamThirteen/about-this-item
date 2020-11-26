@@ -7,6 +7,8 @@ class QAndA extends React.Component {
     super(props);
     this.handleMoreClick = this.handleMoreClick.bind(this);
 
+    this.moreQuestions = React.createRef();
+
     this.state = {
       visibleQuestions: 2
     };
@@ -18,20 +20,20 @@ class QAndA extends React.Component {
       visibleQuestions: moreQuestions
     }, () => {
       if (this.state.visibleQuestions >= this.props.questionCount) {
-        document.getElementById('more-questions').classList.add(`${styles.displayNone}`);
+        this.moreQuestions.current.classList.add(`${styles.displayNone}`);
       }
     });
   }
   render() {
     return (
-      <div id="q-and-a-container" className={styles.displayNone}>
+      <div id="q-and-a-container" className={this.props.visible}>
         <div className={styles.marginLeft}>
           <div className={styles.containerQuestions}>
             <QuestionList questions={this.props.questions} answers={this.props.answers} visibleQuestions={this.state.visibleQuestions}/>
           </div>
         </div>
         <div className={styles.questionButtonRow}>
-          <div id="more-questions" className={styles.questionButtonColumn}>
+          <div id="more-questions" ref={this.moreQuestions}className={styles.questionButtonColumn}>
             <button type="button" className={`${styles.btn} ${styles.question} more`} onClick={this.handleMoreClick}>See more questions ({this.props.questionCount})</button>
           </div>
           <div className={styles.questionButtonColumn}>

@@ -1,0 +1,218 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AnswersList Component should render AnswersList component correctly 1`] = `
+<AnswersList
+  answers={
+    Array [
+      Object {
+        "answer": "Neque officiis quod quo perferendis voluptatum aut sed. Aut in pariatur tempora et animi saepe non. Iure neque quia qui qui qui excepturi. Quod vitae pariatur nisi neque quidem voluptates maxime qui.",
+        "answer_id": 1,
+        "created_at": "2020-01-15T19:45:38.000Z",
+        "helpful": 1,
+        "not_helpful": 12,
+        "product_id": 1,
+        "question_id": 1,
+        "user_name": "Nichole",
+      },
+      Object {
+        "answer": "Qui sit vel aut molestiae. Expedita quia ipsam. Soluta accusantium aspernatur consequatur quibusdam magnam quas. Voluptas fuga sapiente nam distinctio deserunt fuga atque.",
+        "answer_id": 2,
+        "created_at": "2020-05-03T22:34:22.000Z",
+        "helpful": 19,
+        "not_helpful": 27,
+        "product_id": 1,
+        "question_id": 1,
+        "user_name": "Arianna",
+      },
+      Object {
+        "answer": "Soluta optio deserunt ipsam aut hic nostrum quaerat. Voluptatem accusamus harum.",
+        "answer_id": 3,
+        "created_at": "2020-03-09T08:11:04.000Z",
+        "helpful": 16,
+        "not_helpful": 35,
+        "product_id": 1,
+        "question_id": 2,
+        "user_name": "Joshua",
+      },
+      Object {
+        "answer": "Nisi distinctio praesentium. Qui maxime qui a laborum eum quia sed vero quae. Cupiditate voluptatem aut culpa dolores omnis enim voluptas recusandae. Assumenda et voluptatem sed unde impedit autem cupiditate cum.",
+        "answer_id": 4,
+        "created_at": "2020-03-12T15:16:48.000Z",
+        "helpful": 37,
+        "not_helpful": 39,
+        "product_id": 1,
+        "question_id": 2,
+        "user_name": "Hubert",
+      },
+    ]
+  }
+  questionId={1}
+>
+  <div
+    className="containerAnswer"
+  >
+    <AnswersListEntry
+      answer={
+        Object {
+          "answer": "Neque officiis quod quo perferendis voluptatum aut sed. Aut in pariatur tempora et animi saepe non. Iure neque quia qui qui qui excepturi. Quod vitae pariatur nisi neque quidem voluptates maxime qui.",
+          "answer_id": 1,
+          "created_at": "2020-01-15T19:45:38.000Z",
+          "helpful": 1,
+          "not_helpful": 12,
+          "product_id": 1,
+          "question_id": 1,
+          "user_name": "Nichole",
+        }
+      }
+      key="0"
+    >
+      <div>
+        <div
+          className="answerRow"
+        >
+          <span
+            className="answerBold"
+          >
+            A: 
+          </span>
+          <span>
+            Neque officiis quod quo perferendis voluptatum aut sed. Aut in pariatur tempora et animi saepe non. Iure neque quia qui qui qui excepturi. Quod vitae pariatur nisi neque quidem voluptates maxime qui.
+          </span>
+        </div>
+        <div
+          className="answerRowName"
+        >
+          <span>
+            Nichole
+          </span>
+           — 
+          <t
+            ago={false}
+            calendar={false}
+            decimal={false}
+            element={null}
+            filter={[Function]}
+            fromNow={true}
+            interval={60000}
+            local={false}
+            onChange={[Function]}
+            titleFormat=""
+            toNow={false}
+            unit={null}
+            unix={false}
+            utc={false}
+            withTitle={false}
+          >
+            <time
+              dateTime={"2020-01-15T19:45:38.000Z"}
+            >
+              10 months ago
+            </time>
+          </t>
+           
+          <span
+            className="helpful answerClick"
+          >
+             Helpful(
+            1
+            ) 
+          </span>
+          <span
+            className="not-helpful answerClick"
+          >
+             Not helpful(
+            12
+            ) 
+          </span>
+          <span
+            className="report-answer answerClick"
+          >
+             Report 
+          </span>
+        </div>
+      </div>
+    </AnswersListEntry>
+    <AnswersListEntry
+      answer={
+        Object {
+          "answer": "Qui sit vel aut molestiae. Expedita quia ipsam. Soluta accusantium aspernatur consequatur quibusdam magnam quas. Voluptas fuga sapiente nam distinctio deserunt fuga atque.",
+          "answer_id": 2,
+          "created_at": "2020-05-03T22:34:22.000Z",
+          "helpful": 19,
+          "not_helpful": 27,
+          "product_id": 1,
+          "question_id": 1,
+          "user_name": "Arianna",
+        }
+      }
+      key="1"
+    >
+      <div>
+        <div
+          className="answerRow"
+        >
+          <span
+            className="answerBold"
+          >
+            A: 
+          </span>
+          <span>
+            Qui sit vel aut molestiae. Expedita quia ipsam. Soluta accusantium aspernatur consequatur quibusdam magnam quas. Voluptas fuga sapiente nam distinctio deserunt fuga atque.
+          </span>
+        </div>
+        <div
+          className="answerRowName"
+        >
+          <span>
+            Arianna
+          </span>
+           — 
+          <t
+            ago={false}
+            calendar={false}
+            decimal={false}
+            element={null}
+            filter={[Function]}
+            fromNow={true}
+            interval={60000}
+            local={false}
+            onChange={[Function]}
+            titleFormat=""
+            toNow={false}
+            unit={null}
+            unix={false}
+            utc={false}
+            withTitle={false}
+          >
+            <time
+              dateTime={"2020-05-03T22:34:22.000Z"}
+            >
+              7 months ago
+            </time>
+          </t>
+           
+          <span
+            className="helpful answerClick"
+          >
+             Helpful(
+            19
+            ) 
+          </span>
+          <span
+            className="not-helpful answerClick"
+          >
+             Not helpful(
+            27
+            ) 
+          </span>
+          <span
+            className="report-answer answerClick"
+          >
+             Report 
+          </span>
+        </div>
+      </div>
+    </AnswersListEntry>
+  </div>
+</AnswersList>
+`;
