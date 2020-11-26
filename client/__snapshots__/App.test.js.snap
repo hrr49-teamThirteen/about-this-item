@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App Component should render App correctly 1`] = `
+exports[`App Component and Children should render App correctly 1`] = `
 <App>
   <div
     id="mainContainer"

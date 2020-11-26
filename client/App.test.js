@@ -6,28 +6,17 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import { mount, shallow } from 'enzyme';
 import mockAxios from 'jest-mock-axios';
-import details from '../__mocks__/mockData.js';
-import questions from '../__mocks__/mockData.js';
-import answers from '../__mocks__/mockData.js';
+import { details, questions, answers }from '../__mocks__/mockData.js';
+
 
 // COMPONENTS
-import App, { getAnswers, handleClick } from './App.jsx';
+import App from './App.jsx';
 import Details from './components/Details.jsx';
 
 let component;
-let mockClickQAndA;
-let mockHandleToggle;
-let mockHandleShowToggle;
 
 
 beforeAll(async () => {
-  mockClickQAndA = jest.fn();
-  // App.prototype.handleShowToggle = mockHandleShowToggle;
-
-  mockHandleToggle = jest.fn();
-
-  App.prototype.handleClick = mockClickQAndA;
-  // Details.prototype.handleToggle = mockHandleToggle;
   component = await mount(<App />);
 
   await mockAxios.mockResponse(
@@ -45,6 +34,7 @@ beforeAll(async () => {
     { url: '/api/products/1/answers' },
     { data: answers });
 
+
 });
 
 afterAll(async () => {
@@ -52,7 +42,7 @@ afterAll(async () => {
   await component.unmount();
 });
 
-describe('App Component', () => {
+describe('App Component and Children', () => {
   it('should render App correctly', async () => {
     expect(component).toMatchSnapshot();
   });
@@ -69,19 +59,37 @@ describe('App Component', () => {
     expect(mockAxios).toHaveBeenCalledWith({ 'method': 'GET', 'url': '/api/products/1/questions' });
   });
 
-  it('should call handleClick on Q&A tab click', async () => {
+  it('should call for answers on Q&A tab click', async () => {
     await component.find('#qAndA').simulate('click');
-    expect(mockClickQAndA).toHaveBeenCalled();
+    expect(mockAxios).toHaveBeenCalledWith({ 'method': 'GET', 'url': '/api/products/1/answers' });
   });
 
-  it('should call handleClick on Q&A tab click', async () => {
+  it('should should change button text on click', async () => {
     let expandButton = await component.find('#btn-expand');
+
     expect(expandButton.text()).toEqual('Show more');
-    // component.instance().handleShowToggle();
     expandButton.simulate('click');
     expect(component.state().showToggle).toBe(true);
-    // expect(expandButton.text()).toEqual('Show less');
-
+    expect(expandButton.text()).toEqual('Show less');
   });
+
+  it('should expand specifications section after button press', async () => {
+    let expandButton = await component.find('#btn-expand');
+    let specsContainer = await component.find('#specs-container');
+
+    expect(specsContainer.instance().classList).not.toContain('collapsed');
+    expandButton.simulate('click');
+    expect(specsContainer.instance().classList).toContain('collapsed');
+  });
+
+  it('should show more questions on button click', async () => {
+    let moreQuestions = await component.find('.btn.question.more');
+    let questionsContainer = await component.find('QAndA');
+
+    expect(questionsContainer.state().visibleQuestions).toBe(2);
+    moreQuestions.simulate('click');
+    expect(questionsContainer.state().visibleQuestions).toBe(5);
+
+  })
 
 });

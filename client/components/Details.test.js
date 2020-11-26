@@ -6,15 +6,14 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import { mount, shallow } from 'enzyme';
 import mockAxios from 'jest-mock-axios';
-import details from '../../__mocks__/mockData.js';
-import questions from '../../__mocks__/mockData.js';
+import { details, questions, answers }from '../../__mocks__/mockData.js';
+
 
 // COMPONENTS
-import App, { getProductDetails, handleShowToggle } from '../App.jsx';
+import App from '../App.jsx';
 import Details from './Details.jsx';
 
 let component;
-let parent;
 let mockToggle;
 
 beforeAll(async () => {

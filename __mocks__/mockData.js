@@ -28,14 +28,14 @@ module.exports = {
   },
   questions: [
     {
-        "question_id": 6516,
+        "question_id": 1,
         "user_name": "Dedrick",
         "question": "Aut eum aut laboriosam id laborum vel omnis voluptas?",
         "created_at": "2020-04-02T17:51:57.000Z",
         "product_id": 91
     },
     {
-        "question_id": 6517,
+        "question_id": 2,
         "user_name": "Freda",
         "question": "Ea quisquam atque molestiae non qui accusantium?",
         "created_at": "2020-05-18T20:14:35.000Z",
@@ -61,6 +61,26 @@ module.exports = {
         "created_at": "2020-05-03T22:34:22.000Z",
         "helpful": 19,
         "not_helpful": 27,
+        "product_id": 1
+    },
+    {
+      "answer_id": 3,
+      "user_name": "Joshua",
+      "question_id": 2,
+      "answer": "Soluta optio deserunt ipsam aut hic nostrum quaerat. Voluptatem accusamus harum.",
+      "created_at": "2020-03-09T08:11:04.000Z",
+      "helpful": 16,
+      "not_helpful": 35,
+      "product_id": 1
+    },
+    {
+        "answer_id": 4,
+        "user_name": "Hubert",
+        "question_id": 2,
+        "answer": "Nisi distinctio praesentium. Qui maxime qui a laborum eum quia sed vero quae. Cupiditate voluptatem aut culpa dolores omnis enim voluptas recusandae. Assumenda et voluptatem sed unde impedit autem cupiditate cum.",
+        "created_at": "2020-03-12T15:16:48.000Z",
+        "helpful": 37,
+        "not_helpful": 39,
         "product_id": 1
     }
   ]
