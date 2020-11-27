@@ -2,11 +2,13 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+const compression = require('compression');
 const db = require('../db/mariadb.js');
 
 app.use(express.static(__dirname + '/../public/'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(compression());
 
 // API ROUTES
 app.get('/api/products/:id/details', (req, res) => {
