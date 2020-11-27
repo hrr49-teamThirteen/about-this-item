@@ -34,7 +34,7 @@
     "test": "jest",
     "test-coverage": "jest --coverage",
     "test:watch": "jest --watch",
-    "build": "webpack --mode=production",
+    "build": "webpack --mode=production -d source-map",
     "react-dev": "webpack --mode=development -d eval-source-map --watch",
     "server-dev": "nodemon server/app.js",
     "seed": "node server/fakeData.js"
