@@ -26,9 +26,9 @@ build/
 dist/
 
 # Bundles
-public/bundle.js
-public/bundle.js.map
-public/bundle.js.LICENSE.txt
+public/*bundle.js
+public/*bundle.js.map
+public/*bundle.js.LICENSE.txt
 
 # Environment Variables
 .env
