@@ -1,5 +1,5 @@
-import React from 'react';
-import HighlightsListEntry from './HighlightsListEntry.jsx';
+import React, { lazy } from 'react';
+const HighlightsListEntry = lazy(() => import('./HighlightsListEntry.jsx'));
 import styles from '../assets/style.css';
 
 const HighlightsList = function(props) {
