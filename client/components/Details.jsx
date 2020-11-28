@@ -1,6 +1,6 @@
-import React, { lazy } from 'react';
-const HighlightsList = lazy(() => import('./HighlightsList.jsx'));
-const SpecificationsList = lazy(() => import('./SpecificationsList.jsx'));
+import React from 'react';
+import HighlightsList from './HighlightsList.jsx';
+import SpecificationsList from './SpecificationsList.jsx';
 import styles from '../assets/style.css';
 
 class Details extends React.Component {

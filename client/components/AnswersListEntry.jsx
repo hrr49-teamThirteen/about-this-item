@@ -1,5 +1,5 @@
-import React, { lazy } from 'react';
-const Moment = lazy(() => import('react-moment'));
+import React from 'react';
+import Moment from 'react-moment';
 import styles from '../assets/style.css';
 
 class AnswersListEntry extends React.Component {

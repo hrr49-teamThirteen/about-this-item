@@ -1,12 +1,10 @@
-import React, { lazy, Suspense } from 'react';
-// import ReactDOM from 'react-dom';
+import React from 'react';
+import ReactDOM from 'react-dom';
 import axios from 'axios';
-const QAndA = lazy(() => import('./components/QAndA.jsx'));
-const ShippingAndReturns = lazy(() => import('./components/ShippingAndReturns.jsx'));
-const Details = lazy(() => import('./components/Details.jsx'));
+import QAndA from './components/QAndA.jsx';
+import ShippingAndReturns from './components/ShippingAndReturns.jsx';
+import Details from './components/Details.jsx';
 import styles from './assets/style.css';
-
-const renderLoader = () => <p>Loading...</p>;
 
 
 class App extends React.Component {
@@ -139,7 +137,6 @@ class App extends React.Component {
             </ul>
           </div>
         </div>
-        <Suspense fallback={renderLoader()}>
         <Details
           toggle={this.handleShowToggle.bind(this)}
           highlights={this.state.highlights}
@@ -158,7 +155,7 @@ class App extends React.Component {
           questionCount={this.state.questionCount}
           visible={this.state.qAndATab}
         />
-      </Suspense>
+
       </div>
     );
   }

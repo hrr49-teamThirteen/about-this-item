@@ -1,5 +1,5 @@
-import React, { lazy } from 'react';
-const QuestionList = lazy(() => import('./QuestionList.jsx'));
+import React from 'react';
+import QuestionList from './QuestionList.jsx';
 import styles from '../assets/style.css';
 
 class QAndA extends React.Component {
