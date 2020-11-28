@@ -1,5 +1,5 @@
-import React, { lazy } from 'react';
-const SpecificationsListEntry = lazy(() => import('./SpecificationsListEntry.jsx'));
+import React from 'react';
+import SpecificationsListEntry from './SpecificationsListEntry.jsx';
 import styles from '../assets/style.css';
 
 const SpecificationsList = function(props) {

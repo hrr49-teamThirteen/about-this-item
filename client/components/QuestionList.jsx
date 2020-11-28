@@ -1,5 +1,5 @@
-import React, { lazy } from 'react';
-const QuestionListEntry = lazy(() => import('./QuestionListEntry.jsx'));
+import React from 'react';
+import QuestionListEntry from './QuestionListEntry.jsx';
 import styles from '../assets/style.css';
 
 const QuestionList = function(props) {
