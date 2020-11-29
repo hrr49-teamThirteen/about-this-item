@@ -41,20 +41,14 @@ class ShippingAndReturns extends React.Component {
       showModal: true,
       modalClass: `${styles.modalWarningOpen}`,
       overlayClass: `${styles.overlayShow}`
-    }, () => {
-      // console.log(this.modalWarning.current);
-      // this.modalWarning.current.classList.add(`${styles.open}`);
     });
   }
 
   closeModal(e) {
-    // this.modalWarning.current.classList.remove(`${styles.open}`);
     this.setState({
       showModal: false,
       modalClass: `${styles.modalWarningClose}`,
       overlayClass: `${styles.overlayHidden}`
-    }, () => {
-      // this.modalWarning.current.classList.remove(`${styles.open}`);
     });
   }
 
