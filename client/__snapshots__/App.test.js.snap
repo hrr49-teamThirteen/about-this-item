@@ -165,6 +165,124 @@ exports[`App Component and Children should render App correctly 1`] = `
         id="shipping-returns-container"
       >
         <div
+          onClick={[Function]}
+        >
+          <ModalWarning
+            modalClass="modalWarningClose"
+            overlayClass="overlayHidden"
+            showModal={false}
+          >
+            <div
+              className="overlayHidden"
+            >
+              <div
+                className="modalWarningClose"
+              >
+                <div
+                  className="warningBoxHeader"
+                >
+                  <div
+                    className="warningIcon"
+                  >
+                    <svg
+                      focusable="false"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      width="24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <g
+                        fill="none"
+                        fillRule="evenodd"
+                      >
+                        <path
+                          d="M1 21h22L12 2z"
+                          fill="#E86900"
+                        />
+                        <path
+                          d="M12 16a1.12 1.12 0 110 2.24A1.12 1.12 0 0112 16zm.75-7v5.75h-1.5V9h1.5z"
+                          fill="#FFF"
+                        />
+                      </g>
+                    </svg>
+                  </div>
+                  <h2
+                    className="warningHeaderText"
+                  >
+                    This item won't be shipped in a Target box
+                  </h2>
+                  <div
+                    className="warningClose"
+                  >
+                    <svg
+                      focusable="false"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      width="24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <defs>
+                        <circle
+                          cx="12"
+                          cy="12"
+                          r="11"
+                        />
+                      </defs>
+                      <g
+                        fill="none"
+                        fillRule="evenodd"
+                      >
+                        <mask
+                          fill="#fff"
+                          id="nds-Icon194b"
+                        >
+                          <circle
+                            cx="12"
+                            cy="12"
+                            id="nds-Icon194a"
+                            r="11"
+                          />
+                        </mask>
+                        <path
+                          d="M0 0h24v24H0z"
+                          fill="#333"
+                          mask="url(#nds-Icon194b)"
+                        />
+                        <path
+                          d="M12 10.586l4.243-4.243 1.414 1.414L13.414 12l4.243 4.243-1.414 1.414L12 13.414l-4.243 4.243-1.414-1.414L10.586 12 6.343 7.757l1.414-1.414z"
+                          fill="#FFF"
+                          mask="url(#nds-Icon194b)"
+                        />
+                      </g>
+                    </svg>
+                  </div>
+                </div>
+                <div
+                  className="warningMessage"
+                >
+                  <p>
+                    Because this item ships in its original packaging, there's no way to hide what it is. If you're giving it as a gift and don't want to spoil the surprise, here are a couple options:
+                  </p>
+                  <ul
+                    className="warningList"
+                  >
+                    <li
+                      className="warningListItem"
+                    >
+                      Have the item sent to a trusted friend or relative's home.
+                    </li>
+                    <li
+                      className="warningListItem"
+                    >
+                      Choose Order Pickup
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </ModalWarning>
+        </div>
+        <div
           className="containerWhite"
         >
           <div>
@@ -181,7 +299,7 @@ exports[`App Component and Children should render App correctly 1`] = `
                   className="shippingGreen"
                 >
                   Get it by 
-                  Mon, Nov 30
+                  Wed, Dec 02
                 </span>
                  with free Standard Shipping
               </div>
@@ -202,13 +320,40 @@ exports[`App Component and Children should render App correctly 1`] = `
               <div
                 className="shippingWarning"
               >
-                <a>
-                  Warning Symbol
-                </a>
-                 Because this item ships in its original packaging, there's no way to hide what it is. 
-                <a>
-                  Details
-                </a>
+                <div
+                  className="warningIcon"
+                >
+                  <svg
+                    focusable="false"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g
+                      fill="none"
+                      fillRule="evenodd"
+                    >
+                      <path
+                        d="M1 21h22L12 2z"
+                        fill="#E86900"
+                      />
+                      <path
+                        d="M12 16a1.12 1.12 0 110 2.24A1.12 1.12 0 0112 16zm.75-7v5.75h-1.5V9h1.5z"
+                        fill="#FFF"
+                      />
+                    </g>
+                  </svg>
+                </div>
+                <span>
+                  Because this item ships in its original packaging, there's no way to hide what it is. 
+                  <a
+                    className="underline"
+                    onClick={[Function]}
+                  >
+                    Details
+                  </a>
+                </span>
               </div>
               <h3
                 className="returnDetails"

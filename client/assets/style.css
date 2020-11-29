@@ -8,6 +8,8 @@ body {
   box-sizing: border-box;
   align-content: center;
   line-height: 1.4285;
+  z-index: 1;
+  position: relative;
 }
 
 div {
@@ -188,7 +190,14 @@ hr {
 }
 
 .shippingWarning {
+  display: flex;
   color: rgb(232, 105, 0);
+  align-self: flex-start;
+  justify-content: flex-start;
+}
+
+.warningIcon {
+  margin-right: 12px;
 }
 
 /* HIGHLIGHTS */
@@ -312,10 +321,91 @@ hr {
   margin-left: 16px;
 }
 
+/* MODALS */
+
+.overlayHidden {
+  position: fixed;
+  opacity: 0;
+  z-index: -10;
+}
+
+.overlayShow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, .7);
+  opacity: 1;
+  z-index: 10;
+}
+
+.modalWarningClose {
+  position: fixed;
+  opacity: 0;
+  transform: translate3d(-50%, -50%, 0px) scale(.75);
+  z-index: -10;
+}
+
+.modalWarningOpen {
+  position: fixed;
+  padding: 1em;
+  background-color: white;
+  max-width: 700px;
+  width: 85%;
+  max-height: 85%;
+  inset: 50% auto auto 50%;
+  border: 1px rgb(136, 136, 136);
+  border-radius: 4px;
+  opacity: 1;
+  transform: translate3d(-50%, -50%, 0px) scale(1);
+  transition: opacity 2000ms ease 0s,
+              transform 500ms ease 50ms;
+  z-index: 11;
+}
+
+.warningBoxHeader {
+  display: flex;
+  /* align-content: center; */
+  justify-content: flex-start;
+}
+
+.warningMessage {
+  padding: 16px;
+  font-size: 16px;
+  margin: 0px;
+}
+
+.warningHeaderText {
+  margin: 0px;
+  font-size: 23px;
+}
+
+.warningList {
+  margin: 0px;
+  padding: 16px;
+}
+
+.warningListItem {
+  margin-top: 8px;
+}
+
+.warningClose {
+  position: absolute;
+  cursor: pointer;
+  top: 5px;
+  right: 5px;
+}
+
 /* DISPLAY */
 
 .displayNone {
   display: none !important;
+}
+
+.underline {
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 /* MEDIA SPECIFIC */
