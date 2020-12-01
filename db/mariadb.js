@@ -11,7 +11,7 @@ const sequelize = new Sequelize('ABOUT_THIS_ITEM', process.env.DB_USER, process.
 });
 
 
-// MODELS/TABLES
+// MODELS/TABLES.
 
 const Product = sequelize.define('Product', {
   product_id: {
