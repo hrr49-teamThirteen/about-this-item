@@ -359,7 +359,7 @@ hr {
   border-radius: 4px;
   opacity: 1;
   transform: translate3d(-50%, -50%, 0px) scale(1);
-  transition: opacity 2000ms ease 0s,
+  transition: opacity 300ms ease 0s,
               transform 500ms ease 50ms;
   z-index: 11;
 }

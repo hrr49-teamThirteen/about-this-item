@@ -3,9 +3,6 @@ import styles from '../assets/style.css';
 
 export default class ModalWarning extends React.Component {
   render() {
-    // if(!this.props.showModal) {
-    //   return null;
-    // }
     return (
       <div className={this.props.overlayClass}>
         <div className={this.props.modalClass}>
@@ -18,7 +15,7 @@ export default class ModalWarning extends React.Component {
                 </g>
               </svg>
             </div>
-            <h2 className={styles.warningHeaderText}>This item won't be shipped in a Target box</h2>
+            <h2 className={styles.warningHeaderText}>This item won't be shipped in a NearMiss box</h2>
             <div className={styles.warningClose}>
               <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" focusable="false">
                 <defs>
@@ -26,10 +23,8 @@ export default class ModalWarning extends React.Component {
                 </defs>
                 <g fill="none" fillRule="evenodd">
                   <mask id="nds-Icon194b" fill="#fff">
-                    {/* <use xlink:href="#nds-Icon194a"> */}
                       <circle id="nds-Icon194a" cx="12" cy="12" r="11"></circle>
                   </mask>
-                  {/* <circle cx="12" cy="12" r="11"></circle> */}
                   <path fill="#333" mask="url(#nds-Icon194b)" d="M0 0h24v24H0z"></path>
                   <path fill="#FFF" mask="url(#nds-Icon194b)" d="M12 10.586l4.243-4.243 1.414 1.414L13.414 12l4.243 4.243-1.414 1.414L12 13.414l-4.243 4.243-1.414-1.414L10.586 12 6.343 7.757l1.414-1.414z"></path>
                 </g>
