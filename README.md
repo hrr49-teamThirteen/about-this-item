@@ -19,6 +19,7 @@
 ## CRUD
 
 > The below URL's should be prefixed with /api/products
+
 Action | Method | URL
 -------|--------|------
 Create a new question | POST | /:id/questions
@@ -33,7 +34,7 @@ Delete a product | DELETE | /:id
 
 ## Usage
 
-> Some usage instructions
+> This is a standalone version of an About-This-Item component from Target's website that will have full functionality to view product details, shipping & returns information, and Q&A's.
 
 ## Requirements
 
