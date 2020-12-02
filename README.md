@@ -1,6 +1,6 @@
 # Project Name
 
-> Project description
+> Optimizing database management system to support scaling the existing service
 
 ## Related Projects
 
@@ -11,13 +11,30 @@
 
 ## Table of Contents
 
+1. [CRUD](#CRUD)
 1. [Usage](#Usage)
 1. [Requirements](#requirements)
 1. [Development](#development)
 
+## CRUD
+
+> The below URL's should be prefixed with /api/products
+
+Action | Method | URL
+-------|--------|------
+Create a new question | POST | /:id/questions
+Create a new answer | POST | /:id/answers
+Get details for product | GET | /:id/details
+Get questions for product | GET | /:id/questions
+Get answers for product | GET | /:id/answers
+Update answer to Helpful | PUT | /:id/helpful
+Update answer to Not Helpful | PUT | /:id/not-helpful
+Delete a product | DELETE | /:id
+
+
 ## Usage
 
-> Some usage instructions
+> This is a standalone version of an About-This-Item component from Target's website that will have full functionality to view product details, shipping & returns information, and Q&A's.
 
 ## Requirements
 
