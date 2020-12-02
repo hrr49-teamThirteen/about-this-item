@@ -3,7 +3,7 @@ const { Sequelize, DataTypes } = require('sequelize');
 
 const sequelize = new Sequelize('ABOUT_THIS_ITEM', process.env.DB_USER, process.env.DB_PASS, {
   host: process.env.DB_HOST,
-  dialect: 'mariadb',
+  dialect: 'mysql',
   dialectOptions: {
     timezone: 'Etc/GMT-6'
   },

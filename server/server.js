@@ -78,9 +78,9 @@ app.put('/api/products/:id/not-helpful', (req, res) => {
   });
 });
 
-app.get('/test', (req, res) => {
-  res.status(200).json({ message: 'pass!' });
-});
+// app.get('/test', (req, res) => {
+//   res.status(200).json({ message: 'pass!' });
+// });
 
 // let port = process.env.PORT || 5000;
 // app.listen(port, () => {
