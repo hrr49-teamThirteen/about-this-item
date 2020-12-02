@@ -5,7 +5,8 @@ const sequelize = new Sequelize('ABOUT_THIS_ITEM', process.env.DB_USER, process.
   host: process.env.DB_HOST,
   dialect: 'mysql',
   dialectOptions: {
-    timezone: 'Etc/GMT-6'
+    dateStrings: true,
+    typeCast: true
   },
   logging: false
 });
@@ -113,16 +114,16 @@ const Answer = sequelize.define('Answer', {
 Question.hasMany(Answer, { foreignKey: 'question_id' });
 Answer.belongsTo(Question, { foreignKey: 'question_id' });
 
-Product.hasMany(Highlight, { foreignKey: 'product_id' });
+Product.hasMany(Highlight, { foreignKey: 'product_id', onDelete: 'CASCADE' });
 Highlight.belongsTo(Product, { foreignKey: 'product_id' });
 
-Product.hasMany(Specification, { foreignKey: 'product_id' });
+Product.hasMany(Specification, { foreignKey: 'product_id', onDelete: 'CASCADE' });
 Specification.belongsTo(Product, { foreignKey: 'product_id' });
 
-Product.hasMany(Question, { foreignKey: 'product_id' });
+Product.hasMany(Question, { foreignKey: 'product_id', onDelete: 'CASCADE' });
 Question.belongsTo(Product, { foreignKey: 'product_id' });
 
-Product.hasMany(Answer, { foreignKey: 'product_id' });
+Product.hasMany(Answer, { foreignKey: 'product_id', onDelete: 'CASCADE' });
 Answer.belongsTo(Product, { foreignKey: 'product_id' });
 
 
@@ -132,161 +133,6 @@ async function syncAll(option) {
 };
 syncAll();
 
-// QUERIES
-
-const getAllDetails = (id, callback) => {
-  var data = {};
-  Highlight.findAll({
-    where: {
-      product_id: id
-    }
-  })
-    .then(result => {
-      data.highlights = [];
-      result.forEach(item => {
-        data.highlights.push(item.text);
-      });
-      Specification.findAll({
-        where: {
-          product_id: id
-        }
-      })
-        .then(specs => {
-          data.specifications = {};
-          data.specifications["Item Number"] = id;
-          specs.forEach(item => {
-            if (item.name.toLowerCase() === 'description') {
-              data.description = item.value;
-            } else {
-              data.specifications[item.name] = item.value;
-            }
-          });
-          callback(null, data);
-        })
-        .catch(err => {
-          callback(err);
-        });
-    })
-    .catch(err => {
-      callback(err);
-    });
-};
-
-const getAllQuestions = (id, callback) => {
-  Question.findAll({
-    where: {
-      product_id: id
-    }
-  })
-  .then(result => {
-    result.forEach(item => {
-      delete item.dataValues.createdAt;
-      delete item.dataValues.updatedAt;
-    })
-    callback(null, result)
-  })
-  .catch(err => {
-    callback(err);
-  });
-};
-
-const getAllAnswers = (id, callback) => {
-  Answer.findAll({
-    where: {
-      product_id: id
-    }
-  })
-  .then(result => {
-    result.forEach(item => {
-      delete item.dataValues.createdAt;
-      delete item.dataValues.updatedAt;
-    })
-    callback(null, result)
-  })
-  .catch(err => {
-    callback(err);
-  });
-};
-
-const addQuestion = (data, id, callback) => {
-  Question.create({
-    user_name: data.user_name,
-    question: data.question,
-    product_id: id
-  })
-  .then(result => {
-    callback(null, result);
-  })
-  .catch(err => {
-    callback(err);
-  });
-};
-
-const addAnswer = (data, id, callback) => {
-  Answer.create({
-    user_name: data.user_name,
-    question_id: data.question_id,
-    answer: data.answer,
-    product_id: id
-  })
-  .then(result => {
-    callback(null, result);
-  })
-  .catch(err => {
-    callback(err);
-  });
-};
-
-const updateHelpful = (data, id, callback) => {
-  Answer.increment(
-    'helpful',
-    { by: 1, where: { answer_id: data.answer_id }
-  })
-  .then(result => {
-    Answer.findAll({
-      where: {
-        answer_id: data.answer_id
-      }
-    })
-    .then(answer => {
-      delete answer[0].dataValues.createdAt;
-      delete answer[0].dataValues.updatedAt;
-      callback(null, answer[0]);
-    })
-    .catch(err => {
-      callback(err);
-    });
-  })
-  .catch(err => {
-    callback(err);
-  });
-};
-
-const updateNotHelpful = (data, id, callback) => {
-  Answer.increment(
-    'not_helpful',
-    { by: 1, where: { answer_id: data.answer_id }
-  })
-  .then(result => {
-    Answer.findAll({
-      where: {
-        answer_id: data.answer_id
-      }
-    })
-    .then(answer => {
-      delete answer[0].dataValues.createdAt;
-      delete answer[0].dataValues.updatedAt;
-      callback(null, answer[0]);
-    })
-    .catch(err => {
-      callback(err);
-    });
-  })
-  .catch(err => {
-    callback(err);
-  });
-};
-
 // EXPORTS
 module.exports = {
   Product,
@@ -295,12 +141,5 @@ module.exports = {
   Question,
   Answer,
   sequelize,
-  syncAll,
-  getAllDetails,
-  getAllQuestions,
-  getAllAnswers,
-  addQuestion,
-  addAnswer,
-  updateHelpful,
-  updateNotHelpful
+  syncAll
 };

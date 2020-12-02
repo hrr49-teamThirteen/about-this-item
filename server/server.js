@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const compression = require('compression');
-const db = require('../db/mariadb.js');
+const db = require('../db/dbFunctions.js');
 
 app.use(express.static(__dirname + '/../public/'));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -77,6 +77,16 @@ app.put('/api/products/:id/not-helpful', (req, res) => {
     res.status(200).send(data);
   });
 });
+
+app.delete('/api/products/:id', (req, res) => {
+  db.deleteProduct(req.params.id, (err, data) => {
+    if (err) {
+      res.status(400).send(err);
+      console.error(err);
+    }
+    res.status(200).send(`product with id of ${req.params.id} is deleted!`);
+  })
+})
 
 // app.get('/test', (req, res) => {
 //   res.status(200).json({ message: 'pass!' });
