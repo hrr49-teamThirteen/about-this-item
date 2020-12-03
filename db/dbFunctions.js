@@ -1,4 +1,3 @@
-require('dotenv').config();
 const {
   Product, Highlight, Specification, Question, Answer,
 } = require('./mariadb.js');

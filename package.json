@@ -37,7 +37,8 @@
     "build": "webpack --mode=production -d source-map",
     "react-dev": "webpack --mode=development -d eval-source-map --watch",
     "server-dev": "nodemon server/app.js",
-    "seed": "node server/fakeData.js"
+    "seed": "node server/fakeData.js",
+    "reset-psql": "psql postgres -U david_main -f db/postgres/postgresSchema.sql"
   },
   "dependencies": {
     "axios": "^0.21.0",
