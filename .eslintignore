@@ -1,0 +1,4 @@
+# Only use eslint for db and server (for now)
+client/
+node_modules/
+public/
