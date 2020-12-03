@@ -6,11 +6,10 @@ const sequelize = new Sequelize('ABOUT_THIS_ITEM', process.env.DB_USER, process.
   dialect: 'mysql',
   dialectOptions: {
     dateStrings: true,
-    typeCast: true
+    typeCast: true,
   },
-  logging: false
+  logging: false,
 });
-
 
 // MODELS/TABLES.
 
@@ -18,58 +17,58 @@ const Product = sequelize.define('Product', {
   product_id: {
     type: DataTypes.INTEGER,
     autoIncrement: true,
-    primaryKey: true
+    primaryKey: true,
   },
   name: {
-    type: DataTypes.STRING
-  }
+    type: DataTypes.STRING,
+  },
 });
 
 const Highlight = sequelize.define('Highlight', {
   text: {
     type: DataTypes.TEXT,
-    allowNull: false
+    allowNull: false,
   },
   product_id: {
-    type: DataTypes.INTEGER
-  }
+    type: DataTypes.INTEGER,
+  },
 });
 
 const Specification = sequelize.define('Specification', {
   name: {
     type: DataTypes.STRING,
-    allowNull: false
+    allowNull: false,
   },
   value: {
     type: DataTypes.TEXT,
-    allowNull: false
+    allowNull: false,
   },
   product_id: {
-    type: DataTypes.INTEGER
-  }
+    type: DataTypes.INTEGER,
+  },
 });
 
 const Question = sequelize.define('Question', {
   question_id: {
     type: DataTypes.INTEGER,
     autoIncrement: true,
-    primaryKey: true
+    primaryKey: true,
   },
   user_name: {
     type: DataTypes.STRING,
-    allowNull: false
+    allowNull: false,
   },
   question: {
     type: DataTypes.TEXT,
-    allowNull: false
+    allowNull: false,
   },
   created_at: {
     type: DataTypes.DATE,
-    defaultValue: DataTypes.NOW
+    defaultValue: DataTypes.NOW,
   },
   product_id: {
-    type: DataTypes.INTEGER
-  }
+    type: DataTypes.INTEGER,
+  },
 });
 
 const Answer = sequelize.define('Answer', {
@@ -77,37 +76,37 @@ const Answer = sequelize.define('Answer', {
     type: DataTypes.INTEGER,
     allowNull: false,
     autoIncrement: true,
-    primaryKey: true
+    primaryKey: true,
   },
   user_name: {
     type: DataTypes.STRING,
-    allowNull: false
+    allowNull: false,
   },
   question_id: {
-    type: DataTypes.INTEGER
+    type: DataTypes.INTEGER,
   },
   answer: {
     type: DataTypes.TEXT,
-    allowNull: false
+    allowNull: false,
   },
   created_at: {
     type: DataTypes.DATE,
     defaultValue: DataTypes.NOW,
-    allowNull: false
+    allowNull: false,
   },
   helpful: {
     type: DataTypes.INTEGER,
     defaultValue: 0,
-    allowNull: false
+    allowNull: false,
   },
   not_helpful: {
     type: DataTypes.INTEGER,
     defaultValue: 0,
-    allowNull: false
+    allowNull: false,
   },
   product_id: {
-    type: DataTypes.INTEGER
-  }
+    type: DataTypes.INTEGER,
+  },
 });
 
 // FOREIGN KEY ASSOCIATIONS
@@ -126,11 +125,10 @@ Question.belongsTo(Product, { foreignKey: 'product_id' });
 Product.hasMany(Answer, { foreignKey: 'product_id', onDelete: 'CASCADE' });
 Answer.belongsTo(Product, { foreignKey: 'product_id' });
 
-
 // MODEL / TABLE SYNC
 async function syncAll(option) {
   await sequelize.sync(option);
-};
+}
 syncAll();
 
 // EXPORTS
@@ -141,5 +139,5 @@ module.exports = {
   Question,
   Answer,
   sequelize,
-  syncAll
+  syncAll,
 };
