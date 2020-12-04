@@ -40,5 +40,5 @@ snippets.json
 login.sh
 
 # CSV
-db/postgres/csv
+*.csv
 

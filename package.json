@@ -39,7 +39,8 @@
     "server-dev": "nodemon server/app.js",
     "seed": "node server/fakeData.js",
     "reset-psql": "psql postgres -U david_main -f db/postgres/postgresSchema.sql",
-    "csv-generate": "node ./db/postgres/csv/dataGenerator.js"
+    "csv-generate": "node ./db/postgres/csv/dataGenerator.js",
+    "csv-seed": "node db/postgres/csv/seedCSV.js"
   },
   "dependencies": {
     "axios": "^0.21.0",

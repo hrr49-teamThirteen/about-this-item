@@ -1,0 +1,10 @@
+## use postgres
+psql postgres
+  or (to login as a role)
+psql postgres -U ROLE_NAME
+
+## connect to a database
+\c DATABASE_NAME
+
+## check database tables
+\dt
