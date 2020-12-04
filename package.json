@@ -37,7 +37,9 @@
     "build": "webpack --mode=production -d source-map",
     "react-dev": "webpack --mode=development -d eval-source-map --watch",
     "server-dev": "nodemon server/app.js",
-    "seed": "node server/fakeData.js"
+    "seed": "node server/fakeData.js",
+    "reset-psql": "psql postgres -U david_main -f postgres/postgresSchema.sql",
+    "csv-seed": "node postgres/csv/seedCSV.js"
   },
   "dependencies": {
     "axios": "^0.21.0",
@@ -45,6 +47,7 @@
     "compression": "^1.7.4",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "faker": "^5.1.0",
     "mariadb": "^2.5.1",
     "moment": "^2.29.1",
     "moment-timezone": "^0.5.32",
@@ -67,8 +70,13 @@
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.5",
     "enzyme-to-json": "^3.6.1",
+    "eslint": "^7.14.0",
+    "eslint-config-airbnb": "^18.2.1",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
-    "faker": "^5.1.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react-hooks": "^4.2.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^26.6.3",
     "jest-mock-axios": "^4.2.1",
