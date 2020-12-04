@@ -12,32 +12,32 @@ console.time();
 const productsLines = 10000000;
 const productsCSVFile = path.join(__dirname, '/products.csv');
 const productsStream = fs.createWriteStream(productsCSVFile);
-writeCSV(productsStream, productsLines, createProduct, 'utf-8', () => { productsStream.end(); });
+writeCSV(productsStream, productsLines, createProduct, 'utf-8', 'products', () => { productsStream.end(); });
 
 // HIGHLIGHTS DATA
-const highlightsLines = 1000;
+const highlightsLines = 10000000;
 const highlightsCSVFile = path.join(__dirname, '/highlights.csv');
 const highlightsStream = fs.createWriteStream(highlightsCSVFile);
-writeCSV(highlightsStream, highlightsLines, createHighlight, 'utf-8', () => { highlightsStream.end(); });
+writeCSV(highlightsStream, highlightsLines, createHighlight, 'utf-8', 'highlights', () => { highlightsStream.end(); });
 
 // SPECIFICATIONS DATA
-const specificationsLines = 1000;
+const specificationsLines = 10000000;
 const specificationsCSVFile = path.join(__dirname, '/specifications.csv');
 const specificationsStream = fs.createWriteStream(specificationsCSVFile);
-writeCSV(specificationsStream, specificationsLines, createSpecification, 'utf-8', () => { specificationsStream.end(); });
+writeCSV(specificationsStream, specificationsLines, createSpecification, 'utf-8', 'specifications', () => { specificationsStream.end(); });
 
 // QUESTIONS DATA
-const questionsLines = 1000;
+const questionsLines = 10000000;
 const questionsCSVFile = path.join(__dirname, '/questions.csv');
 const questionsStream = fs.createWriteStream(questionsCSVFile);
-writeCSV(questionsStream, questionsLines, createQuestion, 'utf-8', () => { questionsStream.end(); });
+writeCSV(questionsStream, questionsLines, createQuestion, 'utf-8', 'questions', () => { questionsStream.end(); });
 
 // ANSWERS DATA
-const answersLines = 1000;
+const answersLines = 10000000;
 const answersCSVFile = path.join(__dirname, '/answers.csv');
 const answersStream = fs.createWriteStream(answersCSVFile);
-writeCSV(answersStream, answersLines, createAnswer, 'utf-8', () => { answersStream.end(); });
-
-// CSV SEED FINISHED
-console.log('FINISH CSV');
-console.timeEnd();
+writeCSV(answersStream, answersLines, createAnswer, 'utf-8', 'answers', () => {
+  answersStream.end();
+  console.log('FINISH CSV');
+  console.timeEnd();
+});
