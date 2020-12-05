@@ -6,14 +6,14 @@ const createHighlight = () => {
   const tagLine = faker.lorem.words();
   const paragraph = faker.lorem.sentence();
   const highlight = `${tagLine.toUpperCase()}: ${paragraph}`;
-  const productId = Math.floor(Math.random() * 1000);
+  const productId = Math.floor(Math.random() * 10000000) + 1;
   return `${highlight}, ${productId}\n`;
 };
 
 const createSpecification = () => {
   const specName = faker.commerce.productMaterial();
   const specValue = faker.lorem.words();
-  const productId = Math.floor(Math.random() * 1000);
+  const productId = Math.floor(Math.random() * 10000000) + 1;
   return `${specName},${specValue},${productId}\n`;
 };
 
@@ -22,7 +22,7 @@ const createQuestion = () => {
   let question = faker.lorem.sentence();
   question = `${question.substring(0, question.length - 1)}?`;
   const createdAt = faker.date.past();
-  const productId = Math.floor(Math.random() * 1000);
+  const productId = Math.floor(Math.random() * 10000000) + 1;
   return `${userName},${question},${createdAt},${productId}\n`;
 };
 
@@ -32,8 +32,8 @@ const createAnswer = () => {
   const createdAt = faker.date.past();
   const helpful = Math.floor(Math.random() * 25);
   const notHelpful = Math.floor(Math.random() * 25);
-  const productId = Math.floor(Math.random() * 1000);
-  const questionId = Math.floor(Math.random() * 1000);
+  const productId = Math.floor(Math.random() * 10000000) + 1;
+  const questionId = Math.floor(Math.random() * 10000000) + 1;
   return `${userName},${answer},${createdAt},${helpful},${notHelpful},${productId},${questionId}\n`;
 };
 

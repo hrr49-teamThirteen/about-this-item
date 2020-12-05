@@ -38,8 +38,8 @@
     "react-dev": "webpack --mode=development -d eval-source-map --watch",
     "server-dev": "nodemon server/app.js",
     "seed": "node server/fakeData.js",
-    "reset-psql": "psql postgres -U david_main -f postgres/postgresSchema.sql",
-    "csv-seed": "node postgres/csv/seedCSV.js"
+    "reset-psql": "psql postgres -U david_main -f databases/postgres/postgresSchema.sql",
+    "csv-seed": "node databases/csv/seedCSV.js"
   },
   "dependencies": {
     "axios": "^0.21.0",
@@ -48,10 +48,12 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "faker": "^5.1.0",
+    "fast-csv": "^4.3.6",
     "mariadb": "^2.5.1",
     "moment": "^2.29.1",
     "moment-timezone": "^0.5.32",
     "mysql2": "^2.2.5",
+    "pg": "^8.5.1",
     "react": "^16.0.1",
     "react-dom": "^16.0.1",
     "react-moment": "^1.0.0",
