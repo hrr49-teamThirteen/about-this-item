@@ -1,0 +1,31 @@
+/* QUERY STATEMENTS */
+
+-- CREATE
+INSERT INTO questions (user_name, question, created_at) VALUES ('testUser', 'Why can I not make more storage space?', 'Dec 5 2020 10:00PM');
+
+Result:
+INSERT 0 1
+
+-- READ
+SELECT p.id, p.name, h.text, s.name, s.value FROM products as p
+  LEFT OUTER JOIN highlights as h ON p.id = h.product_id
+  LEFT OUTER JOIN specifications as s ON p.id = s.product_id
+  WHERE p.id=9000000;
+
+Result:
+   id    |       name        |                     text                      | name | value
+---------+-------------------+-----------------------------------------------+------+-------
+ 9000000 | Rustic Soft Salad | ET DELECTUS A: Harum corrupti soluta ab illo. |      |
+(1 row)
+
+-- UPDATE
+UPDATE answers SET helpful=5 WHERE id=9000000;
+
+Result:
+UPDATE 1
+
+-- DELETE
+DELETE FROM products where id=10000000;
+
+Result:
+DELETE 1

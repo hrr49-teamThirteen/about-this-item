@@ -8,8 +8,7 @@ const readCSV = (readStream) => {
       csvDataContainer.push(data);
     })
     .on('end', () => {
-      console.log('CSV DATA!!!', csvDataContainer);
-      return csvDataContainer;
+      console.log('DATA!!', csvDataContainer);
     });
   readStream.pipe(csvStream);
 };
