@@ -15,6 +15,7 @@ CREATE TABLE highlights (
   product_id INT,
   FOREIGN KEY (product_id)
     REFERENCES products(id)
+    ON DELETE CASCADE
 );
 
 CREATE TABLE specifications (
@@ -24,6 +25,7 @@ CREATE TABLE specifications (
   product_id INT,
   FOREIGN KEY (product_id)
     REFERENCES products(id)
+    ON DELETE CASCADE
 );
 
 CREATE TABLE questions (
@@ -34,6 +36,7 @@ CREATE TABLE questions (
   product_id INT,
   FOREIGN KEY (product_id)
     REFERENCES products(id)
+    ON DELETE CASCADE
 );
 
 CREATE TABLE answers (
@@ -46,10 +49,14 @@ CREATE TABLE answers (
   product_id INT,
   question_id INT,
   FOREIGN KEY (product_id)
-    REFERENCES products(id),
+    REFERENCES products(id)
+    ON DELETE CASCADE,
   FOREIGN KEY (question_id)
     REFERENCES questions(id)
+    ON DELETE CASCADE
 );
+
+/* COPY CSV FILES TO POSTGRES TABLES */
 
 \COPY products (name) FROM '/Users/David/HackReactor/SEI/senior_phase/about-this-item/databases/csv/products.csv' DELIMITER ',';
 
