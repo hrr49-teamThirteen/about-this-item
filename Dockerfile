@@ -3,6 +3,8 @@ FROM cassandra:latest
 
 MAINTAINER david kim <davidhk21@gmail.com>
 
+COPY databases/cassandra/schema.cql /
+
 # copy over csv files
 COPY databases/csv/products.csv /
 COPY databases/csv/highlights.csv /

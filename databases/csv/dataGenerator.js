@@ -33,7 +33,8 @@ const createAnswer = () => {
   const helpful = Math.floor(Math.random() * 25);
   const notHelpful = Math.floor(Math.random() * 25);
   const questionId = Math.floor(Math.random() * 10000000) + 1;
-  return `${userName},${answer},${createdAt},${helpful},${notHelpful},${questionId}\n`;
+  const productId = Math.floor(Math.random() * 10000000) + 1;
+  return `${userName},${answer},${createdAt},${helpful},${notHelpful},${questionId},${productId}\n`;
 };
 
 module.exports = {

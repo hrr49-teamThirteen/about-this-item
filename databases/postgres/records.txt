@@ -13,10 +13,17 @@ SELECT p.id, p.name, h.text, s.name, s.value FROM products as p
   WHERE p.id=9000000;
 
 Result:
-   id    |       name        |                     text                      | name | value
----------+-------------------+-----------------------------------------------+------+-------
- 9000000 | Rustic Soft Salad | ET DELECTUS A: Harum corrupti soluta ab illo. |      |
-(1 row)
+   id    |       name       |                                           text                                           | spec_name |             value
+---------+------------------+------------------------------------------------------------------------------------------+-----------+-------------------------------
+ 9000000 | Tasty Soft Shoes | ET VERO QUIS: Est autem vero.                                                            | Plastic   | deserunt possimus repellendus
+ 9000000 | Tasty Soft Shoes | ET VERO QUIS: Est autem vero.                                                            | Rubber    | adipisci incidunt enim
+ 9000000 | Tasty Soft Shoes | SUNT SIT ULLAM: Quidem ut id amet et non.                                                | Plastic   | deserunt possimus repellendus
+ 9000000 | Tasty Soft Shoes | SUNT SIT ULLAM: Quidem ut id amet et non.                                                | Rubber    | adipisci incidunt enim
+ 9000000 | Tasty Soft Shoes | SIT ILLO DELECTUS: Debitis odit ea non libero.                                           | Plastic   | deserunt possimus repellendus
+ 9000000 | Tasty Soft Shoes | SIT ILLO DELECTUS: Debitis odit ea non libero.                                           | Rubber    | adipisci incidunt enim
+ 9000000 | Tasty Soft Shoes | QUOD EARUM VENIAM: Velit sit aut voluptatem consequatur aspernatur fuga laborum sit eos. | Plastic   | deserunt possimus repellendus
+ 9000000 | Tasty Soft Shoes | QUOD EARUM VENIAM: Velit sit aut voluptatem consequatur aspernatur fuga laborum sit eos. | Rubber    | adipisci incidunt enim
+(8 rows)
 
 -- UPDATE
 UPDATE answers SET helpful=5 WHERE id=9000000;
@@ -25,7 +32,7 @@ Result:
 UPDATE 1
 
 -- DELETE
-DELETE FROM products where id=10000000;
+DELETE FROM products WHERE id=10000000;
 
 Result:
 DELETE 1
