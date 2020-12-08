@@ -13,4 +13,12 @@ docker exec -ti 79c93d5d0340 cqlsh localhost;
 docker stats container id
 
 -- access the root of the container
-docker exec -ti 73a13781c717 ls;
+docker exec -ti 73a13781c717 ls
+
+
+-- NOTES
+-- check containers
+docker container ls
+-- check images
+docker images
+

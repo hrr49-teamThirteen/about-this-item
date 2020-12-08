@@ -20,7 +20,7 @@ CREATE TABLE highlights (
 
 CREATE TABLE specifications (
   id SERIAL PRIMARY KEY,
-  name VARCHAR(50) NOT NULL,
+  spec_name VARCHAR(50) NOT NULL,
   value VARCHAR(50) NOT NULL,
   product_id INT
   -- FOREIGN KEY (product_id)
@@ -46,10 +46,8 @@ CREATE TABLE answers (
   created_at VARCHAR(100) NOT NULL,
   helpful INT,
   not_helpful INT,
-  question_id INT
-  -- FOREIGN KEY (product_id)
-  --   REFERENCES products(id)
-  --   ON DELETE CASCADE,
+  question_id INT,
+  product_id INT
   -- FOREIGN KEY (question_id)
   --   REFERENCES questions(id)
   --   ON DELETE CASCADE
@@ -58,6 +56,7 @@ CREATE TABLE answers (
 CREATE index ON "highlights" ("product_id");
 CREATE index ON "specifications" ("product_id");
 CREATE index ON "questions" ("product_id");
+CREATE index ON "answers" ("product_id");
 CREATE index ON "answers" ("question_id");
 
 /* COPY CSV FILES TO POSTGRES TABLES */
@@ -66,8 +65,8 @@ CREATE index ON "answers" ("question_id");
 
 \COPY highlights (text, product_id) FROM '/Users/David/HackReactor/SEI/senior_phase/about-this-item/databases/csv/highlights.csv' DELIMITER ',';
 
-\COPY specifications (name, value, product_id) FROM '/Users/David/HackReactor/SEI/senior_phase/about-this-item/databases/csv/specifications.csv' DELIMITER ',';
+\COPY specifications (spec_name, value, product_id) FROM '/Users/David/HackReactor/SEI/senior_phase/about-this-item/databases/csv/specifications.csv' DELIMITER ',';
 
 \COPY questions (user_name, question, created_at, product_id) FROM '/Users/David/HackReactor/SEI/senior_phase/about-this-item/databases/csv/questions.csv' DELIMITER ',';
 
-\COPY answers (user_name, answer, created_at, helpful, not_helpful, question_id) FROM '/Users/David/HackReactor/SEI/senior_phase/about-this-item/databases/csv/answers.csv' DELIMITER ',';
+\COPY answers (user_name, answer, created_at, helpful, not_helpful, question_id, product_id) FROM '/Users/David/HackReactor/SEI/senior_phase/about-this-item/databases/csv/answers.csv' DELIMITER ',';
