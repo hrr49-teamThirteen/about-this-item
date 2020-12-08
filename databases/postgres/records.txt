@@ -7,7 +7,7 @@ Result:
 INSERT 0 1
 
 -- READ
-SELECT p.id, p.name, h.text, s.name, s.value FROM products as p
+SELECT p.id, p.name, h.text, s.spec_name, s.value FROM products as p
   LEFT OUTER JOIN highlights as h ON p.id = h.product_id
   LEFT OUTER JOIN specifications as s ON p.id = s.product_id
   WHERE p.id=9000000;
@@ -26,7 +26,7 @@ Result:
 (8 rows)
 
 -- UPDATE
-UPDATE answers SET helpful=5 WHERE id=9000000;
+UPDATE answers SET helpful = helpful + 1 WHERE id=9000000;
 
 Result:
 UPDATE 1
