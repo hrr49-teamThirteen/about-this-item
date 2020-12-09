@@ -32,7 +32,7 @@ const createAnswer = () => {
   const createdAt = faker.date.past();
   const helpful = Math.floor(Math.random() * 25);
   const notHelpful = Math.floor(Math.random() * 25);
-  const questionId = Math.floor(Math.random() * 10000000) + 1;
+  const questionId = Math.floor(Math.random() * 15000000) + 1;
   const productId = Math.floor(Math.random() * 10000000) + 1;
   return `${userName},${answer},${createdAt},${helpful},${notHelpful},${questionId},${productId}\n`;
 };
