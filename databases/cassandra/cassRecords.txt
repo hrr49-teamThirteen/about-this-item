@@ -1,0 +1,74 @@
+// CREATE
+
+INSERT INTO q_a (id, q_user_name, question, q_created_at, a_user_name, answer, a_created_at, helpful, not_helpful, product_id) VALUES (10000000, 'testUser', 'will this work?', 'Dec 9, 2020 12:33AM', 'answerUser', 'I hope so', 'Dec 10, 2020 2:00PM', 0, 0, 9000000);
+
+Tracing session: f118a2f0-39f0-11eb-b160-bbdf6d93216e
+
+ activity                                                                                                                                                                                                                                                                                                       | timestamp                  | source    | source_elapsed | client
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------+-----------+----------------+-----------
+                                                                                                                                                                                                                                                                                             Execute CQL3 query | 2020-12-09 00:34:16.480000 | 127.0.0.1 |              0 | 127.0.0.1
+ Parsing INSERT INTO q_a (id, q_user_name, question, q_created_at, a_user_name, answer, a_created_at, helpful, not_helpful, product_id) VALUES (10000000, 'testUser', 'will this work?', 'Dec 9, 2020 12:33AM', 'answerUser', 'I hope so', 'Dec 10, 2020 2:00PM', 0, 0, 9000000); [Native-Transport-Requests-1] | 2020-12-09 00:34:16.482000 | 127.0.0.1 |           1951 | 127.0.0.1
+                                                                                                                                                                                                                                                              Preparing statement [Native-Transport-Requests-1] | 2020-12-09 00:34:16.484000 | 127.0.0.1 |           4010 | 127.0.0.1
+                                                                                                                                                                                                                                                Determining replicas for mutation [Native-Transport-Requests-1] | 2020-12-09 00:34:16.498000 | 127.0.0.1 |          17588 | 127.0.0.1
+                                                                                                                                                                                                                                                                       Appending to commitlog [MutationStage-2] | 2020-12-09 00:34:16.504000 | 127.0.0.1 |          23710 | 127.0.0.1
+                                                                                                                                                                                                                                                                       Adding to q_a memtable [MutationStage-2] | 2020-12-09 00:34:16.505000 | 127.0.0.1 |          24469 | 127.0.0.1
+                                                                                                                                                                                                                                                                                               Request complete | 2020-12-09 00:34:16.506881 | 127.0.0.1 |          26881 | 127.0.0.1
+
+// READ
+
+select * from products where id=9000000;
+
+id      | highlight                              | name
+---------+----------------------------------------+---------------------
+ 9000000 | LABORUM NUMQUAM NISI: Nam omnis magni. | Tasty Granite Chair
+
+(1 rows)
+
+Tracing session: 3921e8f0-39f0-11eb-b160-bbdf6d93216e
+
+ activity                                                                       | timestamp                  | source    | source_elapsed | client
+--------------------------------------------------------------------------------+----------------------------+-----------+----------------+-----------
+                                                             Execute CQL3 query | 2020-12-09 00:29:07.841000 | 127.0.0.1 |              0 | 127.0.0.1
+ Parsing select * from products where id=9000000; [Native-Transport-Requests-1] | 2020-12-09 00:29:07.849000 | 127.0.0.1 |          10078 | 127.0.0.1
+                              Preparing statement [Native-Transport-Requests-1] | 2020-12-09 00:29:07.854000 | 127.0.0.1 |          14880 | 127.0.0.1
+                             Read-repair DC_LOCAL [Native-Transport-Requests-1] | 2020-12-09 00:29:07.865000 | 127.0.0.1 |          25129 | 127.0.0.1
+                     Executing single-partition query on products [ReadStage-2] | 2020-12-09 00:29:07.866000 | 127.0.0.1 |          26994 | 127.0.0.1
+                                     Acquiring sstable references [ReadStage-2] | 2020-12-09 00:29:07.867000 | 127.0.0.1 |          27267 | 127.0.0.1
+                                        Merging memtable contents [ReadStage-2] | 2020-12-09 00:29:07.867000 | 127.0.0.1 |          28007 | 127.0.0.1
+                          Bloom filter allows skipping sstable 38 [ReadStage-2] | 2020-12-09 00:29:07.868000 | 127.0.0.1 |          28664 | 127.0.0.1
+                          Bloom filter allows skipping sstable 37 [ReadStage-2] | 2020-12-09 00:29:07.870000 | 127.0.0.1 |          30320 | 127.0.0.1
+              Partition index with 0 entries found for sstable 36 [ReadStage-2] | 2020-12-09 00:29:07.874000 | 127.0.0.1 |          34933 | 127.0.0.1
+                           Read 1 live rows and 0 tombstone cells [ReadStage-2] | 2020-12-09 00:29:07.882000 | 127.0.0.1 |          42212 | 127.0.0.1
+                                                               Request complete | 2020-12-09 00:29:07.885489 | 127.0.0.1 |          44489 | 127.0.0.1
+
+// UPDATE
+
+UPDATE q_a SET helpful=5 WHERE id=9000000;
+
+Tracing session: 89224c40-39f1-11eb-b160-bbdf6d93216e
+
+ activity                                                                         | timestamp                  | source    | source_elapsed | client
+----------------------------------------------------------------------------------+----------------------------+-----------+----------------+-----------
+                                                               Execute CQL3 query | 2020-12-09 00:38:31.556000 | 127.0.0.1 |              0 | 127.0.0.1
+ Parsing UPDATE q_a SET helpful=5 WHERE id=9000000; [Native-Transport-Requests-1] | 2020-12-09 00:38:31.556000 | 127.0.0.1 |            177 | 127.0.0.1
+                                Preparing statement [Native-Transport-Requests-1] | 2020-12-09 00:38:31.556000 | 127.0.0.1 |            632 | 127.0.0.1
+                  Determining replicas for mutation [Native-Transport-Requests-1] | 2020-12-09 00:38:31.561000 | 127.0.0.1 |           4793 | 127.0.0.1
+                                         Appending to commitlog [MutationStage-2] | 2020-12-09 00:38:31.561000 | 127.0.0.1 |           5358 | 127.0.0.1
+                                         Adding to q_a memtable [MutationStage-2] | 2020-12-09 00:38:31.561000 | 127.0.0.1 |           5491 | 127.0.0.1
+                                                                 Request complete | 2020-12-09 00:38:31.562175 | 127.0.0.1 |           6175 | 127.0.0.1
+
+// DELETE
+
+DELETE FROM products where id=9000000;
+
+Tracing session: a72da4a0-39f1-11eb-b160-bbdf6d93216e
+
+ activity                                                                     | timestamp                  | source    | source_elapsed | client
+------------------------------------------------------------------------------+----------------------------+-----------+----------------+-----------
+                                                           Execute CQL3 query | 2020-12-09 00:39:21.962000 | 127.0.0.1 |              0 | 127.0.0.1
+ Parsing DELETE FROM products where id=9000000; [Native-Transport-Requests-1] | 2020-12-09 00:39:21.962000 | 127.0.0.1 |            208 | 127.0.0.1
+                            Preparing statement [Native-Transport-Requests-1] | 2020-12-09 00:39:21.963000 | 127.0.0.1 |            664 | 127.0.0.1
+              Determining replicas for mutation [Native-Transport-Requests-1] | 2020-12-09 00:39:21.963000 | 127.0.0.1 |           1377 | 127.0.0.1
+                                     Appending to commitlog [MutationStage-2] | 2020-12-09 00:39:21.964000 | 127.0.0.1 |           1609 | 127.0.0.1
+                                Adding to products memtable [MutationStage-2] | 2020-12-09 00:39:21.964000 | 127.0.0.1 |           1758 | 127.0.0.1
+                                                             Request complete | 2020-12-09 00:39:21.968447 | 127.0.0.1 |           6447 | 127.0.0.1

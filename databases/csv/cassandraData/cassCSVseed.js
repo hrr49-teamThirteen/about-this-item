@@ -19,7 +19,7 @@ const seedProductsCSV = (start) => {
   while (count <= totalRecords) {
     const productName = faker.commerce.productName();
 
-    const numOfHighlights = Math.floor(Math.random() * 3) + 1;
+    const numOfHighlights = Math.floor(Math.random() * 2) + 1;
     for (let i = 0; i < numOfHighlights; i++) {
       const tagLine = faker.lorem.words();
       const paragraph = faker.lorem.sentence();
@@ -48,8 +48,8 @@ const seedSpecificationsCSV = (start) => {
   let count = start;
 
   while (count <= totalRecords) {
-    const productId = Math.floor(Math.random() * 10) + 1;
-    const numOfSpecs = Math.floor(Math.random() * 3) + 1;
+    const productId = Math.floor(Math.random() * 10000000) + 1;
+    const numOfSpecs = Math.floor(Math.random() * 2) + 1;
     for (let i = 0; i < numOfSpecs; i++) {
       const specName = faker.commerce.productMaterial();
       const specValue = faker.lorem.words();
@@ -81,9 +81,9 @@ const seedQACSV = (start) => {
     let question = faker.lorem.sentence();
     question = `${question.substring(0, question.length - 1)}?`;
     const qCreatedAt = faker.date.past();
-    const productId = Math.floor(Math.random() * 10) + 1;
+    const productId = Math.floor(Math.random() * 10000000) + 1;
 
-    const numOfAnswers = Math.floor(Math.random() * 3) + 1;
+    const numOfAnswers = Math.floor(Math.random() * 2) + 1;
     for (let i = 0; i < numOfAnswers; i++) {
       const aUserName = faker.name.firstName();
       const answer = faker.lorem.sentence();
