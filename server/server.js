@@ -3,8 +3,6 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const compression = require('compression');
-// const db = require('../db/dbFunctions.js');
-// const db = require('../databases/postgres/index.js');
 const db = require('./controllers/controllers.js');
 
 app.use(express.static(`${__dirname}/../public/`));

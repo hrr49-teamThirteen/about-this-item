@@ -38,8 +38,9 @@
     "react-dev": "webpack --mode=development -d eval-source-map --watch",
     "server-dev": "nodemon server/app.js",
     "seed": "node server/fakeData.js",
-    "csv-seed": "node databases/csv/seedCSV.js",
-    "reset-psql": "psql postgres -U david_main -f databases/postgres/postgresSchema.sql"
+    "pg-csv-seed": "node databases/csv/postgresData/seedCSV.js",
+    "reset-psql": "psql postgres -U david_main -f databases/postgres/postgresSchema.sql",
+    "cass-csv-seed": "node databases/csv/cassandraData/cassCSVseed.js"
   },
   "dependencies": {
     "axios": "^0.21.0",

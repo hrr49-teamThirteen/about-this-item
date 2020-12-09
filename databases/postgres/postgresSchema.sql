@@ -61,12 +61,12 @@ CREATE index ON "answers" ("question_id");
 
 /* COPY CSV FILES TO POSTGRES TABLES */
 
-\COPY products (name) FROM '/Users/David/HackReactor/SEI/senior_phase/about-this-item/databases/csv/products.csv' DELIMITER ',';
+\COPY products (name) FROM '/Users/David/HackReactor/SEI/senior_phase/about-this-item/databases/csv/postgresData/products.csv' DELIMITER ',';
 
-\COPY highlights (text, product_id) FROM '/Users/David/HackReactor/SEI/senior_phase/about-this-item/databases/csv/highlights.csv' DELIMITER ',';
+\COPY highlights (text, product_id) FROM '/Users/David/HackReactor/SEI/senior_phase/about-this-item/databases/csv/postgresData/highlights.csv' DELIMITER ',';
 
-\COPY specifications (spec_name, value, product_id) FROM '/Users/David/HackReactor/SEI/senior_phase/about-this-item/databases/csv/specifications.csv' DELIMITER ',';
+\COPY specifications (spec_name, value, product_id) FROM '/Users/David/HackReactor/SEI/senior_phase/about-this-item/databases/csv/postgresData/specifications.csv' DELIMITER ',';
 
-\COPY questions (user_name, question, created_at, product_id) FROM '/Users/David/HackReactor/SEI/senior_phase/about-this-item/databases/csv/questions.csv' DELIMITER ',';
+\COPY questions (user_name, question, created_at, product_id) FROM '/Users/David/HackReactor/SEI/senior_phase/about-this-item/databases/csv/postgresData/questions.csv' DELIMITER ',';
 
-\COPY answers (user_name, answer, created_at, helpful, not_helpful, question_id, product_id) FROM '/Users/David/HackReactor/SEI/senior_phase/about-this-item/databases/csv/answers.csv' DELIMITER ',';
+\COPY answers (user_name, answer, created_at, helpful, not_helpful, question_id, product_id) FROM '/Users/David/HackReactor/SEI/senior_phase/about-this-item/databases/csv/postgresData/answers.csv' DELIMITER ',';
