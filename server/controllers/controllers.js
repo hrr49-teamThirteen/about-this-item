@@ -8,22 +8,7 @@ exports.getProductDetails = (id, cb) => {
     if (err) {
       cb(err, null);
     }
-    // alter data to fit expected format
-    const data = {};
-    const responseData = res.rows;
-    data.highlights = [];
-    responseData.forEach(row => {
-      if (!data.highlights.includes(row.text)) {
-        data.highlights.push(row.text);
-      }
-    })
-    data.specifications = {};
-    responseData.forEach(row => {
-      if (!data.specifications[row.spec_name]) {
-        data.specifications[row.spec_name] = row.value;
-      }
-    })
-    cb(null, data);
+    cb(null, res.rows);
   })
 };
 

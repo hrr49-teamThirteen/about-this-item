@@ -6,6 +6,7 @@ import ShippingAndReturns from './components/ShippingAndReturns.jsx';
 import Details from './components/Details.jsx';
 import styles from './assets/style.css';
 
+import faker from 'faker';
 
 class App extends React.Component {
   constructor(props) {
@@ -35,6 +36,7 @@ class App extends React.Component {
   componentDidMount() {
     this.getProductDetails();
     this.getQuestions();
+    this.getAnswers();
   }
 
   // API CALLS
@@ -44,10 +46,23 @@ class App extends React.Component {
       url: `/api/products/${this.state.product}/details`
     })
       .then(result => {
+        const data = {};
+        data.highlights = [];
+        result.data.forEach(row => {
+          if (!data.highlights.includes(row.text)) {
+            data.highlights.push(row.text);
+          }
+        })
+        data.specifications = {};
+        result.data.forEach(row => {
+          if (!data.specifications[row.spec_name]) {
+            data.specifications[row.spec_name] = row.value;
+          }
+        })
         this.setState({
-          description: result.data.description,
-          highlights: result.data.highlights,
-          specifications: result.data.specifications
+          highlights: data.highlights,
+          description: `${faker.commerce.productDescription()}. ${faker.lorem.paragraphs()}`,
+          specifications: data.specifications
         });
       }, (err) => {
         console.error(err);
@@ -75,6 +90,7 @@ class App extends React.Component {
       url: `/api/products/${this.state.product}/answers`
     })
       .then(results => {
+        console.log('resultssss', results.data)
         this.setState({
           answers: results.data
         });

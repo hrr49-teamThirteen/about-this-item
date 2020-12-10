@@ -42,3 +42,7 @@ login.sh
 # CSV
 *.csv
 
+# Artillery Stress Testing
+stressTest.yaml
+newrelic.js
+*.log

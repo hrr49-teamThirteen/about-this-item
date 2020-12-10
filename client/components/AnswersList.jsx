@@ -7,12 +7,13 @@ const AnswersList = function(props) {
     <div className={styles.containerAnswer}>
       {
         props.answers.map((item, i) => {
-          if (item['question_id'] === props.questionId) {
+          // current db does not match question id from answers to id of questions
+          // if (item['question_id'] === props.questionId) {
             return <AnswersListEntry
               answer={item}
               key={i}
             />;
-          }
+          // }
         })
       }
     </div>
