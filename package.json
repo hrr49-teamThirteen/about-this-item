@@ -40,7 +40,8 @@
     "seed": "node server/fakeData.js",
     "pg-csv-seed": "node databases/csv/postgresData/seedCSV.js",
     "reset-psql": "psql postgres -U david_main -f databases/postgres/postgresSchema.sql",
-    "cass-csv-seed": "node databases/csv/cassandraData/cassCSVseed.js"
+    "cass-csv-seed": "node databases/csv/cassandraData/cassCSVseed.js",
+    "stress-test": "artillery run stressTest.yaml"
   },
   "dependencies": {
     "axios": "^0.21.0",
