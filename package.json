@@ -54,6 +54,7 @@
     "moment": "^2.29.1",
     "moment-timezone": "^0.5.32",
     "mysql2": "^2.2.5",
+    "newrelic": "^7.0.2",
     "pg": "^8.5.1",
     "react": "^16.0.1",
     "react-dom": "^16.0.1",
