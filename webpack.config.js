@@ -1,7 +1,6 @@
 const path = require('path');
 // const CompressionPlugin = require('compression-webpack-plugin');
-// const BrotliPlugin = require('brotli-webpack-plugin');
-const webpack = require('webpack');
+const BrotliPlugin = require('brotli-webpack-plugin');
 
 module.exports = {
   entry: path.resolve(__dirname, '/client/index.jsx'),
@@ -28,12 +27,10 @@ module.exports = {
       }],
   },
   plugins: [
-    new webpack.DefinePlugin({ // <-- key to reducing React's size
-      'process.env': {
-        NODE_ENV: JSON.stringify('production'),
-      },
+    new BrotliPlugin({
+      asset: 'bundle.js.br',
+      test: /\.(js)$/,
     }),
-    new webpack.optimize.AggressiveMergingPlugin(), // Merge chunks
   ],
   mode: 'production',
 };
