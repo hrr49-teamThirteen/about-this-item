@@ -17,10 +17,10 @@ app.get('*.js', (req, res, next) => {
   next();
 });
 
+app.use(compression());
 app.use(express.static(`${__dirname}/../public/`));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(compression());
 
 // ---------- COMPRESSION ---------- //
 
