@@ -29,6 +29,7 @@ dist/
 public/*bundle.js
 public/*bundle.js.map
 public/*bundle.js.LICENSE.txt
+public/*bundle.js.br
 
 # Environment Variables
 .env
