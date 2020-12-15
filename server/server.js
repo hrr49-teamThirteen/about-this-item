@@ -5,6 +5,8 @@ const bodyParser = require('body-parser');
 const compression = require('compression');
 const db = require('./controllers/controllers.js');
 
+const expressStaticGzip = require("express-static-gzip");
+
 app.use(express.static(`${__dirname}/../public/`));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -12,15 +14,13 @@ app.use(compression());
 
 // ---------- COMPRESSION ---------- //
 
-// app.get('*.js', (req, res, next) => {
-//   if (req.header('Accept-Encoding').includes('br')) {
-//     req.url = req.url + '.br';
-//     console.log(req.header('Accept-Encoding'));
-//     res.set('Content-Encoding', 'br');
-//     res.set('Content-Type', 'application/javascript; charset=UTF-8');
-//   }
-//   next();
-// });
+app.use('/build/client', expressStaticGzip('build/client', {
+  enableBrotli: true,
+  orderPreference: ['br', 'gz'],
+  setHeaders: function (res, path) {
+     res.setHeader("Cache-Control", "public, max-age=31536000");
+  }
+}));
 
 // ---------- API ROUTES ---------- //
 
