@@ -5,8 +5,6 @@ const bodyParser = require('body-parser');
 const compression = require('compression');
 const db = require('./controllers/controllers.js');
 
-const expressStaticGzip = require("express-static-gzip");
-
 app.get('*.js', (req, res, next) => {
   if (req.header('Accept-Encoding').includes('br')) {
     req.url = req.url + '.br';
