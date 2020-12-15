@@ -27,9 +27,18 @@ module.exports = {
       }],
   },
   plugins: [
+    new CompressionPlugin({
+      asset: 'bundle.js.br',
+      algorithm: 'gzip',
+      test: /\.js$|\.css$|\.html$/,
+      threshold: 10240,
+      minRatio: 0.7,
+    }),
     new BrotliPlugin({
       asset: 'bundle.js.br',
-      test: /\.(js)$/,
+      test: /\.js$|\.css$|\.html$/,
+      threshold: 10240,
+      minRatio: 0.7,
     }),
   ],
 };
