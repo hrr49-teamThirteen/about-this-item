@@ -7,7 +7,7 @@ const db = require('./controllers/controllers.js');
 
 const expressStaticGzip = require("express-static-gzip");
 
-app.use('/build/client', expressStaticGzip('build/client' {
+app.use('/build/client', expressStaticGzip('build/client', {
   enableBrotli: true,
   orderPreference: ['br', 'gz'],
   setHeaders: function (res, path) {
