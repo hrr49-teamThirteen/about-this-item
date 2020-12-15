@@ -32,4 +32,5 @@ module.exports = {
       test: /\.(js)$/,
     }),
   ],
+  mode: 'production',
 };
