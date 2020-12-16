@@ -32,6 +32,7 @@ app.get('/api/products/:id/details', (req, res) => {
       console.error(err);
       res.status(404).send(err);
     }
+    console.log('REQUEST HAS BEEN RECEIVED!!!!!!!')
     res.status(200).send(data);
   });
 });
