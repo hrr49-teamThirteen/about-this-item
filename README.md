@@ -1,6 +1,6 @@
-# Project Name
+# About This Item
 
-> Optimizing database management system to support scaling the existing service
+> Optimizing database management system to support scaling the About This Item Service of a retail website.
 
 ## Related Projects
 
@@ -54,7 +54,7 @@ npm install
 Rename example.env to .env
 Input your environmental variables into .env
 npm run reset // resets and/or creates a database named ABOUT_THIS_ITEM
-npm run seed // clears databse and begins seeding process
+npm run seed // clears database and begins seeding process
 npm run build // creates bundle.js
 npm start // starts server
 ```

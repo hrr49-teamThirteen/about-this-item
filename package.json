@@ -2,7 +2,7 @@
   "name": "about-this-item",
   "version": "",
   "description": "About this item module for app",
-  "author": "Nicholas Mendini",
+  "author": "David Kim",
   "license": "",
   "private": true,
   "jest": {
