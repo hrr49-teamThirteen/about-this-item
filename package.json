@@ -44,7 +44,7 @@
     "stress-test": "artillery run stressTest.yaml"
   },
   "dependencies": {
-    "axios": "^0.21.0",
+    "axios": "^0.21.1",
     "body-parser": "^1.19.0",
     "brotli-webpack-plugin": "^1.1.0",
     "compression": "^1.7.4",
